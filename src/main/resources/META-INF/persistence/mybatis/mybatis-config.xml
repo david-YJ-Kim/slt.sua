@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<configuration>
+    <properties resource="config/application-biz.properties"/>
+    <settings>
+        <setting name="cacheEnabled" value="true"/> <!-- mybatis cache 사용 여부 -->
+<!--        lazyloadingEnabled-->
+<!--        multipleResultSetsEnabled-->
+<!--        useColumnLabel-->
+<!--        useGeneratedKeys-->
+<!--        defaultExecutorType-->
+<!--        defaultStatementTimeout-->
+<!--        safeRowBoundsEnabled-->
+<!--        mapUnderscoreToCamelCase-->
+<!--        localCacheScope-->
+<!--        jdbcTypeForNull-->
+<!--        lazyLoadTriggerMethods-->
+<!--        callSettersOnNulls-->
+    </settings>
+</configuration>

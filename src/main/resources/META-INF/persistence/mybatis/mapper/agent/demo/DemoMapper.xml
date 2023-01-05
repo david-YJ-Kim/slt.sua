@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plexter.sellter.agent.demo.mapper.DemoMapper">
+
+<!--    paramterType 이 VO이면 VO Class Name 기재, ex) UserInfoVO   resultType 역시 VO 이면 ClassName 기재 ex) MyAllApiListVO-->
+<!--    변수는 VO Schema 이름, 즉, VO class 내, 변수명으로 동일하게 맞춰준-->
+    <select id="selectMyAllApiList" resultType="String">
+        SELECT SUB.LICENSE_NAME, MARKET_NAME_CD, SUM(TOTAL_SALES) FROM SELLTER_USER_SALES SUS, SELLTER_USER_BIZLICENSE SUB
+        WHERE SUS.USER_OBJ_ID = (SELECT SUI.OBJ_ID FROM SELLTER_USER_INFO SUI WHERE USER_ID = 'USER_10001')
+        AND SUB.OBJ_ID = SUS.LICENSE_OBJ_ID
+        AND strftime('%m', SUS.CREATE_DATE) >= strftime('%m', 'NOW')
+        GROUP BY SUB.LICENSE_NAME, SUS.MARKET_NAME_CD
+        ORDER BY SUB.LICENSE_NAME, MARKET_NAME_CD
+    </select>
+</mapper>
