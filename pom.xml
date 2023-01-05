@@ -16,7 +16,8 @@
 	<properties>
 		<java.version>8</java.version>
 	</properties>
-	<dependencies>
+
+		<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -69,6 +70,26 @@
         </dependency>
     </dependencies>
 
+<!--	<profiles>-->
+<!--		<profile>-->
+<!--			<id>local</id>-->
+<!--			<activation>-->
+<!--				<activeByDefault>true</activeByDefault>-->
+<!--			</activation>-->
+<!--			<properties>-->
+<!--				<environment>local</environment>-->
+<!--			</properties>-->
+<!--		</profile>-->
+
+<!--		<profile>-->
+<!--			<id>dev</id>-->
+<!--			<properties>-->
+<!--				<environment>dev</environment>-->
+<!--			</properties>-->
+<!--		</profile>-->
+<!--	</profiles>-->
+
+
 	<build>
 		<plugins>
 			<plugin>
@@ -76,6 +97,11 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+<!--		<resources>-->
+<!--			<resource>-->
+<!--				<directory>src/main/resources/${environment}</directory>-->
+<!--			</resource>-->
+<!--		</resources>-->
 	</build>
 
 </project>

@@ -27,7 +27,7 @@ public class DemoService {
         vo.setTGT_API_ID("TST_API_ID");
         vo.setREQ_SYS_ID("TST_SYS_ID");
         vo.setOPEN_API_NM("API_NM");
-        vo.setOPEN_API_DESC("API_DESC");
+        vo.setOPEN_API_DESC(Arrays.toString(demoMapper.selectMyAllApiList()));
         vo.setHTTP_URL("/openapi/url");
         vo.setHTTP_METHOD_TYP("GET");
         vo.setCRT_USER_NM("David");

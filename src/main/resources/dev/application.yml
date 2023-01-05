@@ -1,0 +1,8 @@
+#mybatis:
+#  mapper-locations: classpath*:/META-INF/persistence/mybatis/mapper/**/*.xml
+#  type-aliases-package: com.plexter.sellter.agent.**.vo
+
+spring:
+  datasource:
+    url: jdbc:sqlite:C:/Users/tspsc/Documents/WorkSpace/Sellter/sellter.sqlite3
+    driver-class-name: org.sqlite.JDBC
