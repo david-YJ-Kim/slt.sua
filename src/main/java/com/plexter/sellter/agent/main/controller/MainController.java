@@ -31,7 +31,7 @@ public class MainController {
         return mainService.getTopSellingItemList(id);
     }
 
-    @RequestMapping(value = "getOrderDashBoard/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/getOrderDashBoard/{id}", method = RequestMethod.GET)
     public List<OrderDashBoardListVo> getOrderDashBoard(@PathVariable String id){
         return mainService.getOrderDashBoard(id);
     }
