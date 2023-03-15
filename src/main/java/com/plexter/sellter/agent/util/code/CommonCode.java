@@ -1,4 +1,4 @@
-package com.plexter.sellter.agent.util;
+package com.plexter.sellter.agent.util.code;
 
 public enum CommonCode {
 

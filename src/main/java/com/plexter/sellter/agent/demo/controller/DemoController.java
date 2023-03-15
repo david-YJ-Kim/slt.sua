@@ -2,14 +2,14 @@ package com.plexter.sellter.agent.demo.controller;
 
 import com.plexter.sellter.agent.demo.service.DemoService;
 import com.plexter.sellter.agent.demo.vo.MyAllApiListVo;
-import com.plexter.sellter.agent.module.vo.UserInfoVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.AbstractController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -28,6 +28,7 @@ public class DemoController {
     @Operation(description = "View My All API", summary = "Summary : View My All API")
 //    public List<MyAllApiListVo> getMyAllApiList(UserInfoVo paramVo) throws Exception {
     public List<MyAllApiListVo> getMyAllApiList() throws Exception {
+        System.out.println("Demo API has been called");
         try{
 //            return demoService.getMyAllApiList(paramVo);
             return demoService.getMyAllApiList(null);

@@ -4,5 +4,5 @@ mybatis:
 
 spring:
   datasource:
-    url: jdbc:sqlite:C:/Users/tspsc/Documents/WorkSpace/Sellter/sellter.sqlite3.bak
+    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter.sqlite3
     driver-class-name: org.sqlite.JDBC

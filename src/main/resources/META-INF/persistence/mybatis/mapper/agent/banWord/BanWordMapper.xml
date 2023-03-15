@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plexter.sellter.agent.banWord.mapper.BanWordMapper">
+
+    <!--    parameterType 이 VO 이면 VO Class Name 기재, ex) UserInfoVO   resultType 역시 VO 이면 ClassName 기재 ex) MyAllApiListVO-->
+    <!--    변수는 VO Schema 이름, 즉, VO class 내, 변수명으로 동일하게 맞춰준-->
+    <insert id="save" parameterType="com.plexter.sellter.agent.banWord.vo.BanWordVO" useGeneratedKeys="true" keyProperty="OBJ_ID">
+        INSERT INTO SLTR_LC_BAN_WORD_DEF
+        (OBJ_ID, USER_OBJ_ID, BAN_WORD, LANG_CD, WORD_CATE_CD, ALTER_WORD, USE_YN)
+        VALUES(#{OBJ_ID}, "tsdavid",#{BAN_WORD}, #{LANG_CD}, #{WORD_CATE_CD}, #{ALTER_WORD}, #{USE_YN});
+    </insert>
+
+    <select id="selectById" parameterType="String" resultType="com.plexter.sellter.agent.banWord.vo.BanWordVO" >
+        SELECT * FROM SLTR_LC_BAN_WORD_DEF WHERE OBJ_ID = #{objectId}
+    </select>
+
+    <select id="selectAll" resultType="com.plexter.sellter.agent.banWord.vo.BanWordVO">
+        SELECT * FROM SLTR_LC_BAN_WORD_DEF
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        DELETE FROM SLTR_LC_BAN_WORD_DEF WHERE OBJ_ID = #{objectId}
+    </delete>
+</mapper>

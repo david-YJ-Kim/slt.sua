@@ -1,26 +1,14 @@
-package com.plexter.sellter.agent.util;
+package com.plexter.sellter.agent.scrap.util;
 
-import com.plexter.sellter.agent.util.code.CommonCode;
+import com.plexter.sellter.agent.scrap.code.JavaScriptCode;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
 import static java.lang.System.out;
 
-public class ScrapCommonUtil {
+public class DriverActionUtil {
 
-    public boolean isChromeDriverSet(){
-
-        String driverPropertyKey = CommonCode.webdriver.name().concat("." + CommonCode.chrome.name() + "." + CommonCode.driver.name() );
-        String driverPath = System.getProperty(driverPropertyKey);
-        if(driverPath == null){
-            return false;
-        }else{
-            if(driverPath.contains("chromedriver.exe")){
-                return true;
-            }
-
-        }
-        return false;
+    public static void main(String[] args) {
     }
 
     /**
@@ -29,15 +17,15 @@ public class ScrapCommonUtil {
      * @param interval
      * @throws InterruptedException
      */
-    private static void scroll_down_and_up_interval(WebDriver driver, int interval, int scrollPauseSec) throws InterruptedException{
+    public static void scroll_down_and_up_interval(WebDriver driver, int interval, int scrollPauseSec) throws InterruptedException{
 
         int SCROLL_PAUSE_SEC = scrollPauseSec;
         int start = 0;
-        String scriptFormat = "window.scrollTo(%s, %s);";
+        String scriptFormat = JavaScriptCode.NOVE_WINDOW_SCROLL.getScript();
 
         JavascriptExecutor executor = (JavascriptExecutor) driver;
 
-        Long last_height = (Long) executor.executeScript("return document.body.scrollHeight");
+        Long last_height = (Long) executor.executeScript(JavaScriptCode.GET_SCROLL_HEIGHT.getScript());
         Thread.sleep(SCROLL_PAUSE_SEC);
 
         while (true) {
@@ -46,7 +34,7 @@ public class ScrapCommonUtil {
 
             Thread.sleep(SCROLL_PAUSE_SEC);
 
-            Long new_height = (Long) executor.executeScript("return document.body.scrollHeight");
+            Long new_height = (Long) executor.executeScript(JavaScriptCode.GET_SCROLL_HEIGHT.getScript());
 
             if (new_height <= last_height){
                 out.println(String.valueOf(new_height) + " <= " + String.valueOf(last_height));
