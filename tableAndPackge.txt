@@ -1,11 +1,12 @@
 SLTR_LC_BAN_WORD_DEF        -       banWord
 SLTR_SVR_USER_DEF           -       user
 SLTR_SVR_USER_FAMILY_DEF    -       user
+SLTR_SVR_USER_AGENT_HIST    -       user
 SLTR_LC_USER_DEF            -       user
+SLTR_LC_USER_LIC_REL        -       user  // 미사용 검토중
 SLTR_LC_IMG_DTL             -       user
 SLTR_SVR_LIC_DEF            -       license
 SLTR_SVR_LIC_STATUS         -       license
-SLTR_LC_USER_LIC_REL        -       user
 SLTR_SVR_BIZ_DEF            -       bizAccount
 SLTR_LC_BIZ_DEF             -       bizAccount
 SLTR_LC_BIZ_MKT_REL         -       bizAccount
@@ -23,4 +24,3 @@ SLTR_LC_SALES_ORDER         -       sales
 SLTR_LC_SALES_ORDER_HIST    -       sales
 SLTR_SVR_CODE_DEF           -       code
 SLTR_LC_CODE_DEF            -       code
-SLTR_SVR_USER_AGENT_HIST    -       user

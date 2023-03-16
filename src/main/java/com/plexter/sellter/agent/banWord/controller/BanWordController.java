@@ -28,9 +28,16 @@ public class BanWordController {
     }
 
     @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/putBanWord", method = RequestMethod.PUT)
+    @Operation(description = "TBD", summary = "TBD")
+    public void updateBanWord(@RequestBody BanWordVO vo){
+        banWordService.updateBanWord(vo);
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/getBanWord", method = RequestMethod.GET)
     @Operation(description = "TBD", summary = "TBD")
-    public BanWordVO selectBanWord(@RequestParam("id") String objectId){
+    public BanWordVO selectBanWordById(@RequestParam("id") String objectId){
         System.out.println(objectId);
         return banWordService.getBanWordById(objectId);
     }
@@ -43,11 +50,27 @@ public class BanWordController {
     }
 
     @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/getBanWordByWord", method = RequestMethod.GET)
+    @Operation(description = "TBD", summary = "TBD")
+    public List<BanWordVO> selectBanWordByWord(@RequestParam("word") String word){
+        System.out.println(word);
+        return banWordService.getBanWordByWord(word);
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/deleteBanWord", method = RequestMethod.DELETE)
     @Operation(description = "TBD", summary = "TBD")
     public void deleteBanWordById(@RequestParam("id") String objectId){
         System.out.println(objectId);
         banWordService.deleteBanWordById(objectId);
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/deleteBanWordByWord", method = RequestMethod.DELETE)
+    @Operation(description = "TBD", summary = "TBD")
+    public void deleteBanWordByWord(@RequestParam("word") String word){
+        System.out.println(word);
+        banWordService.deleteBanWordByWord(word);
     }
 
 

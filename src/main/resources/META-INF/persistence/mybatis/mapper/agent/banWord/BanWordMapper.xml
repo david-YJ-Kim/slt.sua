@@ -10,8 +10,18 @@
         VALUES(#{OBJ_ID}, "tsdavid",#{BAN_WORD}, #{LANG_CD}, #{WORD_CATE_CD}, #{ALTER_WORD}, #{USE_YN});
     </insert>
 
+    <update id="update" parameterType="com.plexter.sellter.agent.banWord.vo.BanWordVO">
+        UPDATE SLTR_LC_BAN_WORD_DEF
+        SET LANG_CD=#{LANG_CD}, ALTER_WORD=#{ALTER_WORD}, USE_YN=#{USE_YN}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
+        WHERE USER_OBJ_ID=#{OBJ_ID}
+    </update>
+
     <select id="selectById" parameterType="String" resultType="com.plexter.sellter.agent.banWord.vo.BanWordVO" >
         SELECT * FROM SLTR_LC_BAN_WORD_DEF WHERE OBJ_ID = #{objectId}
+    </select>
+
+    <select id="selectByWord" parameterType="String" resultType="com.plexter.sellter.agent.banWord.vo.BanWordVO" >
+        SELECT * FROM SLTR_LC_BAN_WORD_DEF WHERE BAN_WORD = #{word}
     </select>
 
     <select id="selectAll" resultType="com.plexter.sellter.agent.banWord.vo.BanWordVO">
@@ -20,5 +30,9 @@
 
     <delete id="deleteById" parameterType="String">
         DELETE FROM SLTR_LC_BAN_WORD_DEF WHERE OBJ_ID = #{objectId}
+    </delete>
+
+    <delete id="deleteByWord" parameterType="String">
+        DELETE FROM SLTR_LC_BAN_WORD_DEF WHERE BAN_WORD = #{word}
     </delete>
 </mapper>

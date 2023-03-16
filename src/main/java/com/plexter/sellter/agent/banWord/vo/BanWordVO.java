@@ -3,7 +3,6 @@ package com.plexter.sellter.agent.banWord.vo;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.plexter.sellter.agent.util.ParsingCommonUtil;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -20,7 +19,7 @@ public class BanWordVO {
 
     @Schema(name = "OBJ_ID", description = "TBD")
     @JsonProperty("OBJ_ID")
-    private String OBJ_ID = ParsingCommonUtil.generateObjId("LCBAN");
+    private String OBJ_ID;
     @Schema(name = "USER_OBJ_ID", description = "TBD")
     @JsonProperty("USER_OBJ_ID")
     private String USER_OBJ_ID;

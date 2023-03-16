@@ -11,15 +11,16 @@ public interface BanWordMapper {
     // 등록
     void save(BanWordVO vo);
 
+    BanWordVO update(BanWordVO vo);
+
     BanWordVO selectById(String objectId);
 
     List<BanWordVO> selectAll();
 
-    List<BanWordVO> selectByBanWord(String banWord);
-
-    List<BanWordVO> selectByAlterWord(String alterWord);
-
+    List<BanWordVO> selectByWord(String word);
 
     void deleteById(String objectId);
+
+    void deleteByWord(String word);
 
 }
