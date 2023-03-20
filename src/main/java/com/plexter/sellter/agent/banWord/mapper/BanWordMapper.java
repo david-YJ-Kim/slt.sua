@@ -1,6 +1,6 @@
 package com.plexter.sellter.agent.banWord.mapper;
 
-import com.plexter.sellter.agent.banWord.vo.BanWordVO;
+import com.plexter.sellter.agent.banWord.vo.SltrLcBanWordDefVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 public interface BanWordMapper {
 
     // 등록
-    void save(BanWordVO vo);
+    void save(SltrLcBanWordDefVO vo);
 
-    BanWordVO update(BanWordVO vo);
+    SltrLcBanWordDefVO update(SltrLcBanWordDefVO vo);
 
-    BanWordVO selectById(String objectId);
+    SltrLcBanWordDefVO selectById(String objectId);
 
-    List<BanWordVO> selectAll();
+    List<SltrLcBanWordDefVO> selectAll();
 
-    List<BanWordVO> selectByWord(String word);
+    List<SltrLcBanWordDefVO> selectByWord(String word);
 
     void deleteById(String objectId);
 
