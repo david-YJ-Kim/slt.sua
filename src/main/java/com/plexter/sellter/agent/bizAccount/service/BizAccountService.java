@@ -12,6 +12,7 @@ public class BizAccountService {
     @Autowired
     BizAccountMapper bizAccountMapper;
 
+    // insert
     public String insertSltrLcBizDef(SltrLcBizDefVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCBIDEF"));
         return bizAccountMapper.saveSltrLcBizDef(vo);
@@ -22,6 +23,7 @@ public class BizAccountService {
         return bizAccountMapper.saveSltrBizMktRel(vo);
     }
 
+    // update
     public SltrLcBizDefVO updateSltrLcBizDef(SltrLcBizDefVO vo){
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
@@ -35,6 +37,8 @@ public class BizAccountService {
         }
         return bizAccountMapper.updateSltrBizMktRel(vo);
     }
+
+    // delete
 
     public SltrLcBizDefVO deleteSltrLcBizDefById(String id){
         return bizAccountMapper.deleteSltrLcBizDefById(id);
