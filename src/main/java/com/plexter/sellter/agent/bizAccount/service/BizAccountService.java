@@ -4,6 +4,7 @@ import com.plexter.sellter.agent.bizAccount.mapper.BizAccountMapper;
 import com.plexter.sellter.agent.bizAccount.vo.SltrLcBizDefVO;
 import com.plexter.sellter.agent.bizAccount.vo.SltrLcBizMktRelVO;
 import com.plexter.sellter.agent.util.ParsingCommonUtil;
+import com.plexter.sellter.agent.util.code.TableKeyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,12 +15,13 @@ public class BizAccountService {
 
     // insert
     public String saveSltrLcBizDef(SltrLcBizDefVO vo){
-        vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCBIDEF"));
-        return bizAccountMapper.saveSltrLcBizDef(vo);
+        vo.setOBJ_ID(ParsingCommonUtil.generateObjId(TableKeyCode.SLTR_TBL_011.name()));
+        bizAccountMapper.saveSltrLcBizDef(vo);
+        return vo.getOBJ_ID();
     }
 
     public String saveSltrBizMktRel(SltrLcBizMktRelVO vo){
-        vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCDIMKREL"));
+        vo.setOBJ_ID(ParsingCommonUtil.generateObjId(TableKeyCode.SLTR_TBL_012.name()));
         return bizAccountMapper.saveSltrBizMktRel(vo);
     }
 
