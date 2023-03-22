@@ -13,7 +13,7 @@ public class BizAccountService {
     BizAccountMapper bizAccountMapper;
 
     // insert
-    public String insertSltrLcBizDef(SltrLcBizDefVO vo){
+    public String saveSltrLcBizDef(SltrLcBizDefVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCBIDEF"));
         return bizAccountMapper.saveSltrLcBizDef(vo);
     }
