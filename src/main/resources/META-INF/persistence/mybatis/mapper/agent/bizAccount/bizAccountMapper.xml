@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plexter.sellter.agent.bizAccount.mapper.BizAccountMapper">
+
+    <!-- INSERT -->
+    <insert id="saveSltrLcBizDef" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizDefVO">
+
+    </insert>
+
+    <insert id="saveSltrBizMktRel" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizMktRelVO">
+
+    </insert>
+
+    <!-- UPDATE -->
+    <update id="updateSltrLcBizDef" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizDefVO">
+
+    </update>
+
+    <update id="saveSltrBizMktRel" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizMktRelVO">
+
+    </update>
+
+
+    <!-- DELETE -->
+    <delete id="deleteSltrLcBizDefById" parameterType="String">
+
+    </delete>
+
+    <delete id="deleteSltrBizMktRelById" parameterType="String">
+
+    </delete>
+
+</mapper>

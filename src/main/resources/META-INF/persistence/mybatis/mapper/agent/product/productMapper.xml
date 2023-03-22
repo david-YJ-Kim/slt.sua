@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plexter.sellter.agent.product.mapper.ProductMapper">
+
+    <!-- INSERT -->
+    <insert id="saveSltrLcProdDtlImg" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlImgVO">
+
+    </insert>
+
+    <insert id="saveSltrLcProdDtl" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlVO">
+
+    </insert>
+
+    <insert id="saveSltrLcProdRegist" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdRegistVO">
+
+    </insert>
+
+    <insert id="saveSltrLcProd" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdVO">
+
+    </insert>
+
+
+    <!-- UPDATE -->
+    <update id="updateSltrLcProdDtlImg" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlImgVO">
+
+    </update>
+
+    <update id="updateSltrLcProdDtl" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlVO">
+
+    </update>
+
+    <update id="updateSltrLcProdRegist" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdRegistVO">
+
+    </update>
+
+    <update id="updateSltrLcProd" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdVO">
+
+    </update>
+
+
+    <!-- DELETE -->
+    <delete id="deleteSltrLcProdDtlImgById" parameterType="String">
+
+    </delete>
+
+    <delete id="deleteSltrLcProdDtlById" parameterType="String">
+
+    </delete>
+
+    <delete id="deleteSltrLcProdRegistById" parameterType="String">
+
+    </delete>
+
+    <delete id="deleteSltrLcProdById" parameterType="String">
+
+    </delete>
+
+</mapper>

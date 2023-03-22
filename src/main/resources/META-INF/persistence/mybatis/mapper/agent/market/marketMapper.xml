@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.plexter.sellter.agent.market.mapper.MarketMapper">
+
+    <!-- INSERT -->
+    <insert id="saveSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+
+    </insert>
+
+
+    <!-- UPDATE -->
+    <update id="saveSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+
+    </update>
+
+
+    <!-- DELETE -->
+    <delete id="saveSltrLcMktDef" parameterType="String">
+
+    </delete>
+
+</mapper>
