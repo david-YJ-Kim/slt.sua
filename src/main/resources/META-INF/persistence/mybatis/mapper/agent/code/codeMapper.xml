@@ -4,18 +4,28 @@
 
     <!-- INSERT -->
     <insert id="saveSltrLcCodeDef" parameterType="com.plexter.sellter.agent.code.vo.SltrLcCodeDefVO">
+        INSERT INTO SLTR_LC_CODE_DEF
+        (OBJ_ID, CODE_CLASS_ID, CODE_ID, KOR_CODE_NAME, ENG_CODE_NAME, USE_YN, DESCRIPT,
+         CREATE_DATE, CREATE_USER_ID, UPDATE_DATE, UPDATE_USER_ID)
+        VALUES(#{OBJ_ID}, #{CODE_CLASS_ID}, #{CODE_ID}, #{KOR_CODE_NAME}, #{ENG_CODE_NAME}, #{USE_YN}, #{DESCRIPT},
+               CURRENT_TIMESTAMP, #{CREATE_USER_ID}, CURRENT_TIMESTAMP, #{UPDATE_USER_ID});
 
     </insert>
 
 
     <!-- UPDATE -->
     <insert id="updateSltrLcCodeDef" parameterType="com.plexter.sellter.agent.code.vo.SltrLcCodeDefVO">
+        UPDATE SLTR_LC_CODE_DEF
+        SET KOR_CODE_NAME=#{KOR_CODE_NAME}, ENG_CODE_NAME=#{ENG_CODE_NAME}, USE_YN=#{USE_YN}, DESCRIPT=#{DESCRIPT}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
+        WHERE OBJ_ID=#{OBJ_ID};
 
     </insert>
 
 
     <!-- DELETE -->
     <insert id="deleteSltrLcCodeDefById" parameterType="String">
+        DELETE FROM SLTR_LC_CODE_DEF
+        WHERE OBJ_ID=#{OBJ_ID};
 
     </insert>
 

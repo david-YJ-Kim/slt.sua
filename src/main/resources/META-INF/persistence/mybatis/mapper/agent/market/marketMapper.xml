@@ -4,19 +4,26 @@
 
     <!-- INSERT -->
     <insert id="saveSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+        INSERT INTO SLTR_LC_MKT_DEF
+        (OBJ_ID, MKT_ID, MKT_NAME, MKT_TYP, CREATE_DATE, CREATE_USER_ID, UPDATE_DATE, UPDATE_USER_ID)
+        VALUES(#{OBJ_ID}, #{MKT_ID}, #{MKT_NAME}, #{MKT_TYP},  CURRENT_TIMESTAMP, #{CREATE_USER_ID}, CURRENT_TIMESTAMP, #{UPDATE_USER_ID});
 
     </insert>
 
 
     <!-- UPDATE -->
     <update id="saveSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+        UPDATE SLTR_LC_MKT_DEF
+        SET MKT_NAME=#{MKT_NAME}, MKT_TYP=#{MKT_TYP}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
+        WHERE OBJ_ID=#{OBJ_ID};
 
     </update>
 
 
     <!-- DELETE -->
     <delete id="saveSltrLcMktDef" parameterType="String">
-
+        DELETE FROM SLTR_LC_MKT_DEF
+        WHERE OBJ_ID=#{OBJ_ID};
     </delete>
 
 </mapper>
