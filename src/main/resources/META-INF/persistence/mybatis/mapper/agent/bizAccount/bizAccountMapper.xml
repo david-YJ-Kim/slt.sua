@@ -34,7 +34,7 @@
 
     </update>
 
-    <update id="saveSltrBizMktRel" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizMktRelVO">
+    <update id="updateSltrBizMktRel" parameterType="com.plexter.sellter.agent.bizAccount.vo.SltrLcBizMktRelVO">
         UPDATE STLR_LC_BIZ_MKT_REL
         SET MKT_USER_ID=#{MKT_USER_ID}, MKT_USER_PWD=#{MKT_USER_PWD}, API_ACCESS_KEY=#{API_ACCESS_KEY}, API_SECRET_KEY=#{API_SECRET_KEY}, MKT_COMPANY_CODE=#{MKT_COMPANY_CODE}, AUTO_CONNECT_YN=#{AUTO_CONNECT_YN},
             AUTO_PROD_UPLOAD_YN=#{AUTO_PROD_UPLOAD_YN}, MGN_RATE=#{MGN_RATE}, MGN_BASIC=#{MGN_BASIC}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
