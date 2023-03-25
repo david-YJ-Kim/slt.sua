@@ -12,7 +12,7 @@
 
 
     <!-- UPDATE -->
-    <update id="saveSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+    <update id="updateSltrLcMktDef" parameterType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
         UPDATE SLTR_LC_MKT_DEF
         SET MKT_NAME=#{MKT_NAME}, MKT_TYP=#{MKT_TYP}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
         WHERE OBJ_ID=#{OBJ_ID};
@@ -21,7 +21,7 @@
 
 
     <!-- DELETE -->
-    <delete id="saveSltrLcMktDef" parameterType="String">
+    <delete id="deleteSltrLcMktDef" parameterType="String">
         DELETE FROM SLTR_LC_MKT_DEF
         WHERE OBJ_ID=#{OBJ_ID};
     </delete>
