@@ -4,13 +4,13 @@ import com.plexter.sellter.agent.user.mapper.UserMapper;
 import com.plexter.sellter.agent.user.vo.SltrLcImgDtlVO;
 import com.plexter.sellter.agent.user.vo.SltrLcUserVO;
 import com.plexter.sellter.agent.util.ParsingCommonUtil;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
 
-    @Mapper
+    @Autowired
     UserMapper mapper;
 
     // Create
@@ -20,7 +20,9 @@ public class UserService {
     }
     public String saveSltrLcUser(SltrLcUserVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCUSR"));
-        return mapper.saveSltrLcUser(vo);
+        System.out.println(vo.toString());
+        mapper.saveSltrLcUser(vo);
+        return vo.getOBJ_ID();
     }
 
     // Update

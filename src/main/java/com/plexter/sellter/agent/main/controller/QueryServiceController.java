@@ -22,9 +22,9 @@ public class QueryServiceController {
     public List<Map<String, Object>> executeQuery(@RequestBody String query){
         try(SqlSession sqlSession = sqlSessionFactory.openSession()){
             QueryServiceMapper mapper = sqlSession.getMapper(QueryServiceMapper.class);
-            System.out.println(query);
+            System.out.println(query.replaceAll("\"", ""));
 
-            return mapper.execute(query);
+            return mapper.execute(query.replaceAll("\"", ""));
         }
 
 

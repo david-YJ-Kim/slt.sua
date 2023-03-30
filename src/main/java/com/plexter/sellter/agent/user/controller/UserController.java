@@ -1,5 +1,6 @@
 package com.plexter.sellter.agent.user.controller;
 
+import com.plexter.sellter.agent.user.dto.UserMasterDataDTO;
 import com.plexter.sellter.agent.user.service.UserService;
 import com.plexter.sellter.agent.user.vo.SltrLcImgDtlVO;
 import com.plexter.sellter.agent.user.vo.SltrLcUserVO;
@@ -61,6 +62,44 @@ public class UserController {
             throw new NullPointerException("Object id is empty");
         }
         return service.deleteSltrLcUserById(id);
+    }
+
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/setUserMasterData", method = RequestMethod.POST)
+    @Operation(description = "TBD", summary = "TBD")
+    public void postUserMasterData(@RequestBody  UserMasterDataDTO dto){
+
+        SltrLcUserVO vo = new SltrLcUserVO();
+        vo.setUSER_ID(dto.getUserId());
+        vo.setUSER_NAME(dto.getUserName());
+        vo.setUSD_EXCH_RATE(dto.getUsdExchRate());
+        vo.setCNY_EXCH_RATE(dto.getCnyExchRate());
+        vo.setBASE_MGN_RATE(dto.getBaseMgnRate());
+        vo.setBASE_MGN_VALUE(dto.getBaseMgnValue());
+        vo.setCUSTM_EXCD_MGN_RATE(dto.getCustmExcdMgnRate());
+        vo.setCUSTM_EXCD_MGN_VALUE(dto.getCustmExcdMgnValue());
+        vo.setSHIP_FEE_TYPE(dto.getShipFeeType());
+        vo.setBASE_SHIP_FEE(dto.getBaseShipFee());
+        vo.setRTRN_SHIP_FEE(dto.getRtrnShipFee());
+        vo.setEXCD_SHIP_FEE(dto.getExcdShipFee());
+        // JEJU_SHIP_FEE
+        // REMOTE_AREA_SHIP_FEE
+        vo.setMFR_NAME(dto.getMfrName());
+        vo.setBRAND_NAME(dto.getBrandName());
+        vo.setUNDR_PUR_AVAIL_FLAG(dto.getUndrPurAvailFlag());
+        vo.setTHUMB_OPTION_YNl(dto.getThumbOptionYn());
+        vo.setTOP_IMG_USE_FLAG(dto.getTopImgUseFlag());
+        vo.setBASE_TOP_IMG_USE_FLAG(dto.getBaseTopImgUseFlag());
+        // TOP_IMG_FILE_PATH
+        vo.setBOT_IMG_USE_FLAG(dto.getBotImgUseFlag());
+        vo.setBASE_BOT_IMG_USE_FLAG(dto.getBaseBotImgUseFlag());
+        // BOT_IMG_FILE_PATH
+        vo.setHASH_TAG_AUTO_YN(dto.getHashTagAutoYn());
+
+
+        service.saveSltrLcUser(vo);
+        System.out.println(dto.toString());
     }
 
 }
