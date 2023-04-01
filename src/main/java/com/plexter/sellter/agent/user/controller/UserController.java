@@ -65,6 +65,11 @@ public class UserController {
     }
 
 
+    @GetMapping("/{userId}")
+    public SltrLcUserVO getSltrLcUser(@PathVariable String userId) {
+        return service.selectSltrLcUser(userId);
+    }
+
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/setUserMasterData", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")

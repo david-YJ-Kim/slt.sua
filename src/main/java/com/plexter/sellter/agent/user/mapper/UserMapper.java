@@ -7,13 +7,15 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserMapper {
 
+    SltrLcUserVO selectSltrLcUser(String userId);
+
     // Create
-    String saveSltrLcImgDtl(SltrLcImgDtlVO vo);
-    String saveSltrLcUser(SltrLcUserVO vo);
+    void saveSltrLcImgDtl(SltrLcImgDtlVO vo);
+    void saveSltrLcUser(SltrLcUserVO vo);
 
     // Update
     SltrLcImgDtlVO updateSltrLcImgDtl(SltrLcImgDtlVO vo);
-    SltrLcUserVO updateSltrLcUser(SltrLcUserVO vo);
+    void updateSltrLcUser(SltrLcUserVO vo);
 
     // Delete By Id
     SltrLcImgDtlVO deleteSltrLcImgDtlById(String id);

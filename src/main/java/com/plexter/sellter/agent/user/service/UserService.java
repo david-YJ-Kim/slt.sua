@@ -13,15 +13,28 @@ public class UserService {
     @Autowired
     UserMapper mapper;
 
+    public SltrLcUserVO selectSltrLcUser(String userId) {
+        return mapper.selectSltrLcUser(userId);
+    }
+
     // Create
     public String saveSltrLcImgDtl(SltrLcImgDtlVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCIMGDTL"));
-        return mapper.saveSltrLcImgDtl(vo);
+        mapper.saveSltrLcImgDtl(vo);
+        return vo.getOBJ_ID();
     }
     public String saveSltrLcUser(SltrLcUserVO vo){
-        vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCUSR"));
-        System.out.println(vo.toString());
-        mapper.saveSltrLcUser(vo);
+
+        if(mapper.selectSltrLcUser(vo.getUSER_ID()).getOBJ_ID().isEmpty()){
+            vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCUSR"));
+            System.out.println(vo.toString());
+
+            mapper.saveSltrLcUser(vo);
+        }else{
+            this.updateSltrLcUser(vo);
+        }
+
+
         return vo.getOBJ_ID();
     }
 
@@ -33,10 +46,12 @@ public class UserService {
         return mapper.updateSltrLcImgDtl(vo);
     }
     public SltrLcUserVO updateSltrLcUser(SltrLcUserVO vo){
+        System.out.println(vo.toString());
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
         }
-        return mapper.updateSltrLcUser(vo);
+        mapper.updateSltrLcUser(vo);
+        return vo;
     }
 
     // Delete By Id

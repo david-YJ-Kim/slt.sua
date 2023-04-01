@@ -2,6 +2,44 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.plexter.sellter.agent.user.mapper.UserMapper">
 
+    <!-- SltrLcUserVO select mapper -->
+    <select id="selectSltrLcUser" parameterType="string" resultMap="SltrLcUserResultMap">
+        SELECT *
+        FROM SLTR_LC_USER_DEF
+        WHERE USER_ID = #{userId}
+    </select>
+
+    <!-- SltrLcUserVO result map -->
+    <resultMap id="SltrLcUserResultMap" type="com.plexter.sellter.agent.user.vo.SltrLcUserVO">
+        <result column="OBJ_ID" property="OBJ_ID"/>
+        <result column="USER_ID" property="USER_ID"/>
+        <result column="USER_NAME" property="USER_NAME"/>
+        <result column="ACTV_LIC_ID" property="ACTV_LIC_ID"/>
+        <result column="ACTV_DATE" property="ACTV_DATE"/>
+        <result column="USD_EXCH_RATE" property="USD_EXCH_RATE"/>
+        <result column="CNY_EXCH_RATE" property="CNY_EXCH_RATE"/>
+        <result column="BASE_MGN_RATE" property="BASE_MGN_RATE"/>
+        <result column="BASE_MGN_VALUE" property="BASE_MGN_VALUE"/>
+        <result column="CUSTM_EXCD_MGN_RATE" property="CUSTM_EXCD_MGN_RATE"/>
+        <result column="CUSTM_EXCD_MGN_VALUE" property="CUSTM_EXCD_MGN_VALUE"/>
+        <result column="SHIP_FEE_TYPE" property="SHIP_FEE_TYPE"/>
+        <result column="BASE_SHIP_FEE" property="BASE_SHIP_FEE"/>
+        <result column="RTRN_SHIP_FEE" property="RTRN_SHIP_FEE"/>
+        <result column="EXCD_SHIP_FEE" property="EXCD_SHIP_FEE"/>
+        <result column="MFR_NAME" property="MFR_NAME"/>
+        <result column="BRAND_NAME" property="BRAND_NAME"/>
+        <result column="UNDR_PUR_AVAIL_FLAG" property="UNDR_PUR_AVAIL_FLAG"/>
+        <result column="THUMB_OPTION_YNl" property="THUMB_OPTION_YNl"/>
+        <result column="HASH_TAG_AUTO_YN" property="HASH_TAG_AUTO_YN"/>
+        <result column="TOP_IMG_USE_FLAG" property="TOP_IMG_USE_FLAG"/>
+        <result column="BASE_TOP_IMG_USE_FLAG" property="BASE_TOP_IMG_USE_FLAG"/>
+        <result column="BOT_IMG_USE_FLAG" property="BOT_IMG_USE_FLAG"/>
+        <result column="BASE_BOT_IMG_USE_FLAG" property="BASE_BOT_IMG_USE_FLAG"/>
+        <result column="CREATE_USER_ID" property="CREATE_USER_ID"/>
+        <result column="UPDATE_USER_ID" property="UPDATE_USER_ID"/>
+    </resultMap>
+
+
     <!-- INSERT -->
     <insert id="saveSltrLcImgDtl" parameterType="com.plexter.sellter.agent.user.vo.SltrLcImgDtlVO">
         INSERT INTO SLTR_LC_IMG_DTL
