@@ -21,13 +21,15 @@ public class UserController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcImgDtl", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcImgDtl(SltrLcImgDtlVO vo){
+    public String postSltrLcImgDtl(@RequestBodySltrLcImgDtlVO vo){
         return service.saveSltrLcImgDtl(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcUser", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcUser(SltrLcUserVO vo){
+    public String postSltrLcUser(@RequestBody SltrLcUserVO vo){
+
+        System.out.println(vo.toString());
         return service.saveSltrLcUser(vo);
     }
 
@@ -74,34 +76,37 @@ public class UserController {
     @RequestMapping(value = "/setUserMasterData", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
     public void postUserMasterData(@RequestBody  UserMasterDataDTO dto){
+        System.out.println("====================print dto");
+        System.out.println(dto.toString());
 
         SltrLcUserVO vo = new SltrLcUserVO();
-        vo.setUSER_ID(dto.getUserId());
-        vo.setUSER_NAME(dto.getUserName());
-        vo.setUSD_EXCH_RATE(dto.getUsdExchRate());
-        vo.setCNY_EXCH_RATE(dto.getCnyExchRate());
-        vo.setBASE_MGN_RATE(dto.getBaseMgnRate());
-        vo.setBASE_MGN_VALUE(dto.getBaseMgnValue());
-        vo.setCUSTM_EXCD_MGN_RATE(dto.getCustmExcdMgnRate());
-        vo.setCUSTM_EXCD_MGN_VALUE(dto.getCustmExcdMgnValue());
-        vo.setSHIP_FEE_TYPE(dto.getShipFeeType());
-        vo.setBASE_SHIP_FEE(dto.getBaseShipFee());
-        vo.setRTRN_SHIP_FEE(dto.getRtrnShipFee());
-        vo.setEXCD_SHIP_FEE(dto.getExcdShipFee());
+        vo.setUSER_ID(dto.getUSER_ID());
+        vo.setUSER_NAME(dto.getUSER_NAME());
+        vo.setUSD_EXCH_RATE(dto.getUSD_EXCH_RATE());
+        vo.setCNY_EXCH_RATE(dto.getCNY_EXCH_RATE());
+        vo.setBASE_MGN_RATE(dto.getBASE_MGN_RATE());
+        vo.setBASE_MGN_VALUE(dto.getBASE_MGN_VALUE());
+        vo.setCUSTM_EXCD_MGN_RATE(dto.getCUSTM_EXCD_MGN_RATE());
+        vo.setCUSTM_EXCD_MGN_VALUE(dto.getCUSTM_EXCD_MGN_VALUE());
+        vo.setSHIP_FEE_TYPE(dto.getSHIP_FEE_TYPE());
+        vo.setBASE_SHIP_FEE(dto.getBASE_SHIP_FEE());
+        vo.setRTRN_SHIP_FEE(dto.getRTRN_SHIP_FEE());
+        vo.setEXCD_SHIP_FEE(dto.getEXCD_SHIP_FEE());
         // JEJU_SHIP_FEE
         // REMOTE_AREA_SHIP_FEE
-        vo.setMFR_NAME(dto.getMfrName());
-        vo.setBRAND_NAME(dto.getBrandName());
-        vo.setUNDR_PUR_AVAIL_FLAG(dto.getUndrPurAvailFlag());
-        vo.setTHUMB_OPTION_YNl(dto.getThumbOptionYn());
-        vo.setTOP_IMG_USE_FLAG(dto.getTopImgUseFlag());
-        vo.setBASE_TOP_IMG_USE_FLAG(dto.getBaseTopImgUseFlag());
+        vo.setMFR_NAME(dto.getMFR_NAME());
+        vo.setBRAND_NAME(dto.getBRAND_NAME());
+        vo.setUNDR_PUR_AVAIL_FLAG(dto.getUNDR_PUR_AVAIL_FLAG());
+        vo.setTHUMB_OPTION_YNl(dto.getTHUMB_OPTION_YN());
+        vo.setTOP_IMG_USE_FLAG(dto.getTOP_IMG_USE_FLAG());
+        vo.setBASE_TOP_IMG_USE_FLAG(dto.getBASE_TOP_IMG_USE_FLAG());
         // TOP_IMG_FILE_PATH
-        vo.setBOT_IMG_USE_FLAG(dto.getBotImgUseFlag());
-        vo.setBASE_BOT_IMG_USE_FLAG(dto.getBaseBotImgUseFlag());
+        vo.setBOT_IMG_USE_FLAG(dto.getBOT_IMG_USE_FLAG());
+        vo.setBASE_BOT_IMG_USE_FLAG(dto.getBASE_BOT_IMG_USE_FLAG());
         // BOT_IMG_FILE_PATH
-        vo.setHASH_TAG_AUTO_YN(dto.getHashTagAutoYn());
+        vo.setHASH_TAG_AUTO_YN(dto.getHASH_TAG_AUTO_YN());
 
+        System.out.println(vo.toString());
 
         service.saveSltrLcUser(vo);
         System.out.println(dto.toString());

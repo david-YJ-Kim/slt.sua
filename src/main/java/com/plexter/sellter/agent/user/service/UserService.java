@@ -25,6 +25,10 @@ public class UserService {
     }
     public String saveSltrLcUser(SltrLcUserVO vo){
 
+        System.out.println("====================");
+        System.out.println(vo.toString());
+        System.out.println(mapper.selectSltrLcUser(vo.getUSER_ID()).getOBJ_ID());
+
         if(mapper.selectSltrLcUser(vo.getUSER_ID()).getOBJ_ID().isEmpty()){
             vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCUSR"));
             System.out.println(vo.toString());
