@@ -51,8 +51,8 @@ public class SltrLcProdVO {
     @Schema(name = "PROD_STATUS", description = "WIP: 데이터 수집 상태, DEL: 미사용 상태 (수집 이 후, 해당 상품을 Disable 시킬 때)")
     @JsonProperty("PROD_STATUS")
     private String PROD_STATUS;
-    @Schema(name = "PROD_STATUS", description = "핵심 상품 등록 여부. (키워드가 핵심 키워드로 등록되면 일괄 변경되고 개별 상품 별로 조작 가능)")
-    @JsonProperty("PROD_STATUS")
+    @Schema(name = "FAV_PROD_YN", description = "핵심 상품 등록 여부. (키워드가 핵심 키워드로 등록되면 일괄 변경되고 개별 상품 별로 조작 가능)")
+    @JsonProperty("FAV_PROD_YN")
     private String FAV_PROD_YN;
     @Schema(name = "CREATE_USER_ID", description = "생성자")
     @JsonProperty("CREATE_USER_ID")

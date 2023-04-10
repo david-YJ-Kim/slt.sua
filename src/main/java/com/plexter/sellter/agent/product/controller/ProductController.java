@@ -22,26 +22,34 @@ public class ProductController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcPrdDtlImg", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcPrdDtlImg(SltrLcProdDtlImgVO vo){
+    public String postSltrLcPrdDtlImg(@RequestBody SltrLcProdDtlImgVO vo){
+
+        System.out.println(vo.toString());
         return service.saveSltrLcProdDtlImg(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcPrdDtl", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcPrdDtl(SltrLcProdDtlVO vo){
+    public String postSltrLcPrdDtl(@RequestBody SltrLcProdDtlVO vo){
+
+        System.out.println(vo.toString());
         return service.saveSltrLcProdDtl(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcProdRegist", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcProdRegist(SltrLcProdRegistVO vo){
+    public String postSltrLcProdRegist(@RequestBody SltrLcProdRegistVO vo){
+
+        System.out.println(vo.toString());
         return service.saveSltrLcProdRegist(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcProd", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcProdVO postSltrLcProd(SltrLcProdVO vo){
-        return service.updateSltrLcProd(vo);
+    public String postSltrLcProd(@RequestBody SltrLcProdVO vo){
+
+        System.out.println(vo.toString());
+        return service.saveSltrLcProd(vo);
     }
 
 
@@ -49,25 +57,30 @@ public class ProductController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcPrdDtlImg", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcProdDtlImgVO putSltrLcPrdDtlImg(SltrLcProdDtlImgVO vo){
+    public SltrLcProdDtlImgVO putSltrLcPrdDtlImg(@RequestBody SltrLcProdDtlImgVO vo){
+        System.out.println(vo.toString());
         return this.service.updateSltrLcProdDtlImg(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcPrdDtl", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcProdDtlVO putSltrLcPrdDtl(SltrLcProdDtlVO vo){
+    public SltrLcProdDtlVO putSltrLcPrdDtl(@RequestBody SltrLcProdDtlVO vo){
+
+        System.out.println(vo.toString());
         return service.updateSltrLcProdDtl(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcProdRegist", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcProdRegistVO putSltrLcProdRegist(SltrLcProdRegistVO vo){
+    public SltrLcProdRegistVO putSltrLcProdRegist(@RequestBody SltrLcProdRegistVO vo){
+        System.out.println(vo.toString());
         return service.updateSltrLcProdRegist(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcProd", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcProdVO putSltrLcProd(SltrLcProdVO vo){
+    public SltrLcProdVO putSltrLcProd(@RequestBody SltrLcProdVO vo){
+        System.out.println(vo.toString());
         return service.updateSltrLcProd(vo);
     }
 

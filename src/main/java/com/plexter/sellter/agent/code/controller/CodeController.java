@@ -19,13 +19,16 @@ public class CodeController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcCodeDef", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcCodeDef(SltrLcCodeDefVO vo){
+    public String postSltrLcCodeDef(@RequestBody SltrLcCodeDefVO vo){
+
+        System.out.println(vo.toString());
         return service.saveSltrLcCodeDef(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcCodeDef", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcCodeDefVO putSltrLcCodeDef(SltrLcCodeDefVO vo){
+    public SltrLcCodeDefVO putSltrLcCodeDef(@RequestBody SltrLcCodeDefVO vo){
+        System.out.println(vo.toString());
         return service.updateSltrLcCodeDef(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)

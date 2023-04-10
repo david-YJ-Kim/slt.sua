@@ -21,9 +21,15 @@
 
 
     <!-- DELETE -->
-    <delete id="deleteSltrLcMktDef" parameterType="String">
+    <delete id="deleteSltrLcMktDefById" parameterType="String">
         DELETE FROM SLTR_LC_MKT_DEF
         WHERE OBJ_ID=#{OBJ_ID};
     </delete>
+
+    <!-- GET -->
+    <select id="getSltrLcMktDefById" parameterType="String" resultType="com.plexter.sellter.agent.market.vo.SltrLcMktDefVO">
+        SELECT * FROM SLTR_LC_MKT_DEF
+        WHERE OBJ_ID=#{OBJ_ID};
+    </select>
 
 </mapper>

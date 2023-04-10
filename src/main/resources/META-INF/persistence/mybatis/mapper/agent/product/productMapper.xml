@@ -17,8 +17,10 @@
 
     <insert id="saveSltrLcProdRegist" parameterType="com.plexter.sellter.agent.product.vo.SltrLcProdRegistVO">
         INSERT INTO SLTR_LC_PROD_REGIST
-        (OBJ_ID, USER_OBJ_ID, REG_PROD_ID, COLLECT_PROD_OBJ_ID, TRGT_MKT_ID, REG_VERSION, REG_PRICE, PRICE_CURRENCY, TRGT_PROD_URL, CREATE_DATE, CREATE_USER_ID, UPDATE_DATE, UPDATE_USER_ID)
-        VALUES('', '', '', '', '', 0, 0, '', '', CURRENT_TIMESTAMP, '', CURRENT_TIMESTAMP, '');
+        (OBJ_ID, USER_OBJ_ID, REG_PROD_ID, COLLECT_PROD_OBJ_ID, TRGT_MKT_ID, REG_VERSION, REG_PRICE, PRICE_CURRENCY, TRGT_PROD_URL,
+         CREATE_DATE, CREATE_USER_ID, UPDATE_DATE, UPDATE_USER_ID)
+        VALUES(#{OBJ_ID}, #{USER_OBJ_ID}, #{REG_PROD_ID}, #{COLLECT_PROD_OBJ_ID}, #{TRGT_MKT_ID}, #{REG_VERSION}, #{REG_PRICE}, #{PRICE_CURRENCY}, #{TRGT_PROD_URL}, CURRENT_TIMESTAMP,
+               #{CREATE_USER_ID}, CURRENT_TIMESTAMP, #{UPDATE_USER_ID});
 
     </insert>
 
@@ -85,5 +87,31 @@
         WHERE OBJ_ID=#{OBJ_ID};
 
     </delete>
+
+
+    <!-- GET -->
+    <select id="getSltrLcProdDtlImgById" parameterType="String" resultType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlImgVO" >
+        SELECT *  FROM SLTR_LC_PROD_DTL_IMG
+        WHERE OBJ_ID=#{id};
+
+    </select>
+
+    <select id="getSltrLcProdDtlById" parameterType="String" resultType="com.plexter.sellter.agent.product.vo.SltrLcProdDtlVO" >
+        SELECT * FROM SLTR_LC_PROD_DTL
+        WHERE OBJ_ID=#{id};
+
+    </select>
+
+    <select id="getSltrLcProdRegistById" parameterType="String" resultType="com.plexter.sellter.agent.product.vo.SltrLcProdRegistVO" >
+        SELECT * FROM SLTR_LC_PROD_REGIST
+        WHERE OBJ_ID=#{OBJ_ID};
+
+    </select>
+
+    <select id="getSltrLcProdById" parameterType="String" resultType="com.plexter.sellter.agent.product.vo.SltrLcProdVO">
+        SELECT * FROM SLTR_LC_PROD
+        WHERE OBJ_ID=#{OBJ_ID};
+
+    </select>
 
 </mapper>

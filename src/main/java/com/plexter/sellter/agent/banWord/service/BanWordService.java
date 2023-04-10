@@ -22,9 +22,13 @@ public class BanWordService {
     }
 
     public void updateBanWord(SltrLcBanWordDefVO vo){
+        // TODO Update SQL 실패...
+        // org.apache.ibatis.type.TypeException: Could not set parameters for mapping: ParameterMapping
+        // 확인요
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
         }
+
         banWordMapper.update(vo);
     }
 

@@ -37,4 +37,12 @@ public class SltrLcCodeDefVO {
     @Schema(name = "DESCRIPT", description = "상세 설명 (CODE 사용처 등)")
     @JsonProperty("DESCRIPT")
     private String DESCRIPT;
+
+    @Schema(name = "CREATE_USER_ID", description = "")
+    @JsonProperty("CREATE_USER_ID")
+    private String CREATE_USER_ID;
+
+    @Schema(name = "UPDATE_USER_ID", description = "")
+    @JsonProperty("UPDATE_USER_ID")
+    private String UPDATE_USER_ID;
 }

@@ -7,11 +7,14 @@ import org.apache.ibatis.annotations.Mapper;
 public interface MarketMapper {
 
     // Create
-    String saveSltrLcMktDef(SltrLcMktDefVO vo);
+    void saveSltrLcMktDef(SltrLcMktDefVO vo);
 
     // Update
-    SltrLcMktDefVO updateSltrLcMktDef(SltrLcMktDefVO vo);
+    void updateSltrLcMktDef(SltrLcMktDefVO vo);
 
     // Delete
-    SltrLcMktDefVO deleteSltrLcMktDefById(String id);
+    void deleteSltrLcMktDefById(String id);
+
+    // Get
+    SltrLcMktDefVO getSltrLcMktDefById(String id);
 }

@@ -21,7 +21,7 @@ public class UserController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcImgDtl", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcImgDtl(@RequestBodySltrLcImgDtlVO vo){
+    public String postSltrLcImgDtl(@RequestBody SltrLcImgDtlVO vo){
         return service.saveSltrLcImgDtl(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
@@ -36,13 +36,17 @@ public class UserController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcImgDtl", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcImgDtlVO putSltrLcImgDtl(SltrLcImgDtlVO vo){
+    public SltrLcImgDtlVO putSltrLcImgDtl(@RequestBody SltrLcImgDtlVO vo){
+
+        System.out.println(vo.toString());
         return service.updateSltrLcImgDtl(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcUser", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcUserVO putSltrLcUser(SltrLcUserVO vo){
+    public SltrLcUserVO putSltrLcUser(@RequestBody SltrLcUserVO vo){
+
+        System.out.println(vo.toString());
         return service.updateSltrLcUser(vo);
     }
 

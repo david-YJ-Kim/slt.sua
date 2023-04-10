@@ -20,26 +20,30 @@ public class BizAccountController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcBizDef", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcBizDef(SltrLcBizDefVO vo){
+    public String postSltrLcBizDef(@RequestBody  SltrLcBizDefVO vo){
+        System.out.println(vo.toString());
         return service.saveSltrLcBizDef(vo);
     }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcBizMktRel", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcBizMktRel(SltrLcBizMktRelVO vo){
+    public String postSltrLcBizMktRel(@RequestBody SltrLcBizMktRelVO vo){
+        System.out.println(vo.toString());
         return service.saveSltrBizMktRel(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/updateSltrLcBizDef", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcBizDefVO updateSltrLcBizDef(SltrLcBizDefVO vo){
+    public SltrLcBizDefVO updateSltrLcBizDef(@RequestBody SltrLcBizDefVO vo){
+        System.out.println(vo.toString());
         return service.updateSltrLcBizDef(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/updateSltrLcBizMktRel", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcBizMktRelVO updateSltrLcBizMktRel (SltrLcBizMktRelVO vo){
+    public SltrLcBizMktRelVO updateSltrLcBizMktRel (@RequestBody SltrLcBizMktRelVO vo){
+        System.out.println(vo.toString());
         return service.updateSltrBizMktRel(vo);
     }
 

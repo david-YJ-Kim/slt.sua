@@ -19,13 +19,16 @@ public class MarketController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcMktDef", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcMktDef (SltrLcMktDefVO vo){
+    public String postSltrLcMktDef (@RequestBody SltrLcMktDefVO vo){
+        System.out.println(vo.toString());
         return service.saveSltrLcMktDef(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcMktDef", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcMktDefVO putSltrLcMktDef(SltrLcMktDefVO vo){
+    public SltrLcMktDefVO putSltrLcMktDef(@RequestBody SltrLcMktDefVO vo){
+
+        System.out.println(vo.toString());
         return service.updateSltrLcMktDef(vo);
     }
 

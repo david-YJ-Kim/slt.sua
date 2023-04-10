@@ -73,8 +73,8 @@ public class SltrLcKeywordVO {
     @Schema(name = "PROD_QTY", description = "키워드로 등록된 전체 제품 수")
     @JsonProperty("PROD_QTY")
     private Integer PROD_QTY;
-    @Schema(name = "USER_OBJ_ID", description = "상품 수집이 최종적으로 완료된 제품 수")
-    @JsonProperty("USER_OBJ_ID")
+    @Schema(name = "COLLECT_QTY", description = "상품 수집이 최종적으로 완료된 제품 수")
+    @JsonProperty("COLLECT_QTY")
     private String COLLECT_QTY;
     @Schema(name = "CP_CATEGORY", description = "쿠팡 추천 카테고리")
     @JsonProperty("CP_CATEGORY")

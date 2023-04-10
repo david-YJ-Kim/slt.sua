@@ -6,3 +6,6 @@ spring:
   datasource:
     url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter.sqlite3
     driver-class-name: org.sqlite.JDBC
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

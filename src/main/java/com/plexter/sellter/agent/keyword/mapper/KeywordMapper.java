@@ -7,11 +7,13 @@ import org.apache.ibatis.annotations.Mapper;
 public interface KeywordMapper {
 
     // Create
-    String saveSltrLcKeyword(SltrLcKeywordVO vo);
+    void saveSltrLcKeyword(SltrLcKeywordVO vo);
 
     // Update
-    SltrLcKeywordVO updateSltrLcKeyword(SltrLcKeywordVO vo);
+    void updateSltrLcKeyword(SltrLcKeywordVO vo);
 
     // Delete by Id.
-    SltrLcKeywordVO deleteSltrLcKeywordById(String id);
+    void deleteSltrLcKeywordById(String id);
+
+    SltrLcKeywordVO getSltrLcKeywordById(String id);
 }

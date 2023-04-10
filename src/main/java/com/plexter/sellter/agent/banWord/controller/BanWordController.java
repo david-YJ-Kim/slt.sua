@@ -31,6 +31,7 @@ public class BanWordController {
     @RequestMapping(value = "/putBanWord", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
     public void updateBanWord(@RequestBody SltrLcBanWordDefVO vo){
+        System.out.println(vo.toString());
         banWordService.updateBanWord(vo);
     }
 

@@ -8,22 +8,29 @@ import com.plexter.sellter.agent.product.vo.SltrLcProdVO;
 public interface ProductMapper {
 
     // Create
-    String saveSltrLcProdDtlImg(SltrLcProdDtlImgVO vo);
-    String saveSltrLcProdDtl(SltrLcProdDtlVO vo);
-    String saveSltrLcProdRegist(SltrLcProdRegistVO vo);
-    String saveSltrLcProd(SltrLcProdVO vo);
+    void saveSltrLcProdDtlImg(SltrLcProdDtlImgVO vo);
+    void saveSltrLcProdDtl(SltrLcProdDtlVO vo);
+    void saveSltrLcProdRegist(SltrLcProdRegistVO vo);
+    void saveSltrLcProd(SltrLcProdVO vo);
 
 
     // Update
-    SltrLcProdDtlImgVO updateSltrLcProdDtlImg(SltrLcProdDtlImgVO vo);
-    SltrLcProdDtlVO updateSltrLcProdDtl(SltrLcProdDtlVO vo);
-    SltrLcProdRegistVO updateSltrLcProdRegist(SltrLcProdRegistVO vo);
-    SltrLcProdVO updateSltrLcProd(SltrLcProdVO vo);
+    void updateSltrLcProdDtlImg(SltrLcProdDtlImgVO vo);
+    void updateSltrLcProdDtl(SltrLcProdDtlVO vo);
+    void updateSltrLcProdRegist(SltrLcProdRegistVO vo);
+    void updateSltrLcProd(SltrLcProdVO vo);
 
 
     // Delete By Id
-    SltrLcProdDtlImgVO deleteSltrLcProdDtlImgById(String id);
-    SltrLcProdDtlVO deleteSltrLcProdDtlById(String id);
-    SltrLcProdRegistVO deleteSltrLcProdRegistById(String id);
-    SltrLcProdVO deleteSltrLcProdById(String id);
+    void deleteSltrLcProdDtlImgById(String id);
+    void deleteSltrLcProdDtlById(String id);
+    void deleteSltrLcProdRegistById(String id);
+    void deleteSltrLcProdById(String id);
+
+
+    // GET By Id
+    SltrLcProdDtlImgVO getSltrLcProdDtlImgById(String id);
+    SltrLcProdDtlVO getSltrLcProdDtlById(String id);
+    SltrLcProdRegistVO getSltrLcProdRegistById(String id);
+    SltrLcProdVO getSltrLcProdById(String id);
 }

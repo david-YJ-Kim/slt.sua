@@ -11,9 +11,14 @@
     </insert>
 
     <update id="update" parameterType="com.plexter.sellter.agent.banWord.vo.SltrLcBanWordDefVO">
+--         UPDATE SLTR_LC_BAN_WORD_DEF
+--         SET LANG_CD=#{LANG_CD}, ALTER_WORD=#{ALTER_WORD}, USE_YN=#{USE_YN}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
+--         WHERE OBJ_ID=#{OBJ_ID}
         UPDATE SLTR_LC_BAN_WORD_DEF
-        SET LANG_CD=#{LANG_CD}, ALTER_WORD=#{ALTER_WORD}, USE_YN=#{USE_YN}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
-        WHERE USER_OBJ_ID=#{OBJ_ID}
+        SET BAN_WORD=#{BAN_WORD}, WORD_CATE_CD=#{WORD_CATE_CD}, LANG_CD=#{LANG_CD}, ALTER_WORD=#{ALTER_WORD},
+            USE_YN=#{USE_YN}, UPDATE_DATE=CURRENT_TIMESTAMP
+        WHERE OBJ_ID=#{OBJ_ID}
+
     </update>
 
     <select id="selectById" parameterType="String" resultType="com.plexter.sellter.agent.banWord.vo.SltrLcBanWordDefVO" >

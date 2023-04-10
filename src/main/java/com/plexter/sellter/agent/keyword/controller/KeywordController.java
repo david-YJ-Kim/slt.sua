@@ -19,13 +19,16 @@ public class KeywordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcKeyword", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postSltrLcKeyword(SltrLcKeywordVO vo){
+    public String postSltrLcKeyword(@RequestBody SltrLcKeywordVO vo){
+        System.out.println(vo.toString());
         return service.saveSltrLcKeyword(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putSltrLcKeyword", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcKeywordVO putSltrLcKeyword(SltrLcKeywordVO vo){
+    public SltrLcKeywordVO putSltrLcKeyword(@RequestBody SltrLcKeywordVO vo){
+
+        System.out.println(vo.toString());
         return service.updateSltrLcKeyword(vo);
     }
 

@@ -19,6 +19,10 @@ public class SltrLcBizMktRelVO {
     @Schema(name = "OBJ_ID", description = "TBD")
     @JsonProperty("OBJ_ID")
     private String OBJ_ID;
+
+    @Schema(name = "USER_OBJ_ID", description = "TBD")
+    @JsonProperty("USER_OBJ_ID")
+    private String USER_OBJ_ID;
     @Schema(name = "USER_ID", description = "(복합 UK) 사용자 정보")
     @JsonProperty("USER_ID")
     private String USER_ID;

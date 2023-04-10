@@ -8,16 +8,21 @@ import org.apache.ibatis.annotations.Mapper;
 public interface BizAccountMapper {
 
     // Create
-    String saveSltrLcBizDef(SltrLcBizDefVO vo);
-    String saveSltrBizMktRel(SltrLcBizMktRelVO vo);
+    void saveSltrLcBizDef(SltrLcBizDefVO vo);
+    void saveSltrBizMktRel(SltrLcBizMktRelVO vo);
 
     // Update
-    SltrLcBizDefVO updateSltrLcBizDef(SltrLcBizDefVO vo);
-    SltrLcBizMktRelVO updateSltrBizMktRel(SltrLcBizMktRelVO vo);
+    void updateSltrLcBizDef(SltrLcBizDefVO vo);
+    void updateSltrBizMktRel(SltrLcBizMktRelVO vo);
 
     // Delete by Id
-    SltrLcBizDefVO deleteSltrLcBizDefById(String id);
-    SltrLcBizMktRelVO deleteSltrBizMktRelById(String id);
+    void deleteSltrLcBizDefById(String id);
+    void deleteSltrBizMktRelById(String id);
 
     // Delete by UKs.
+
+
+    // Get By PK.
+    SltrLcBizDefVO getSltrLcBizDefById(String id);
+    SltrLcBizMktRelVO getSltrBizMktRelById(String id);
 }

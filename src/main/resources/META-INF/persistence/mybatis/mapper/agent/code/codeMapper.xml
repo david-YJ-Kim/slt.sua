@@ -14,19 +14,26 @@
 
 
     <!-- UPDATE -->
-    <insert id="updateSltrLcCodeDef" parameterType="com.plexter.sellter.agent.code.vo.SltrLcCodeDefVO">
+    <update id="updateSltrLcCodeDef" parameterType="com.plexter.sellter.agent.code.vo.SltrLcCodeDefVO">
         UPDATE SLTR_LC_CODE_DEF
         SET KOR_CODE_NAME=#{KOR_CODE_NAME}, ENG_CODE_NAME=#{ENG_CODE_NAME}, USE_YN=#{USE_YN}, DESCRIPT=#{DESCRIPT}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
         WHERE OBJ_ID=#{OBJ_ID};
 
-    </insert>
+    </update>
 
 
     <!-- DELETE -->
-    <insert id="deleteSltrLcCodeDefById" parameterType="String">
+    <delete id="deleteSltrLcCodeDefById" parameterType="String">
         DELETE FROM SLTR_LC_CODE_DEF
         WHERE OBJ_ID=#{OBJ_ID};
 
-    </insert>
+    </delete>
+
+    <!-- DELETE -->
+    <select id="getSltrLcCodeDefById" parameterType="String" resultType="com.plexter.sellter.agent.code.vo.SltrLcCodeDefVO">
+        SELECT * FROM SLTR_LC_CODE_DEF
+        WHERE OBJ_ID=#{OBJ_ID};
+
+    </select>
 
 </mapper>

@@ -3,20 +3,21 @@ package com.plexter.sellter.agent.market.service;
 import com.plexter.sellter.agent.market.mapper.MarketMapper;
 import com.plexter.sellter.agent.market.vo.SltrLcMktDefVO;
 import com.plexter.sellter.agent.util.ParsingCommonUtil;
-import org.apache.ibatis.annotations.Mapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class MarketService {
 
-    @Mapper
+    @Autowired
     MarketMapper mapper;
 
 
     // Create
     public String saveSltrLcMktDef(SltrLcMktDefVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCMKDEF"));
-        return mapper.saveSltrLcMktDef(vo);
+        mapper.saveSltrLcMktDef(vo);
+        return vo.getOBJ_ID();
     }
 
     // Update
@@ -24,12 +25,23 @@ public class MarketService {
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
         }
-        return mapper.updateSltrLcMktDef(vo);
+        mapper.updateSltrLcMktDef(vo);
+        return this.getSltrLcMktDefById(vo.getOBJ_ID());
     }
 
 
     // Delete
     public SltrLcMktDefVO deleteSltrLcMktDefById(String id){
-        return mapper.deleteSltrLcMktDefById(id);
+        SltrLcMktDefVO vo = this.getSltrLcMktDefById(id);
+        if(vo == null){
+            throw new NullPointerException("Id is not defined" + id);
+        }
+        mapper.deleteSltrLcMktDefById(id);
+        return vo;
+    }
+
+    // Get
+    public SltrLcMktDefVO getSltrLcMktDefById(String id){
+        return mapper.getSltrLcMktDefById(id);
     }
 }

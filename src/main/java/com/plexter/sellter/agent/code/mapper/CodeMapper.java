@@ -7,11 +7,14 @@ import org.apache.ibatis.annotations.Mapper;
 public interface CodeMapper {
 
     // Create
-    String saveSltrLcCodeDef(SltrLcCodeDefVO vo);
+    void saveSltrLcCodeDef(SltrLcCodeDefVO vo);
 
     // Update
-    SltrLcCodeDefVO updateSltrLcCodeDef(SltrLcCodeDefVO vo);
+    void updateSltrLcCodeDef(SltrLcCodeDefVO vo);
 
     // delete
-    SltrLcCodeDefVO deleteSltrLcCodeDefById(String id);
+    void deleteSltrLcCodeDefById(String id);
+
+    // get
+    SltrLcCodeDefVO getSltrLcCodeDefById(String id);
 }

@@ -34,4 +34,11 @@
 
     </delete>
 
+
+    <!-- GET -->
+    <select id="getSltrLcKeywordById" parameterType="String" resultType="com.plexter.sellter.agent.keyword.vo.SltrLcKeywordVO">
+        SELECT * FROM SLTR_LC_KEYWORD
+        WHERE OBJ_ID=#{OBJ_ID}
+    </select>
+
 </mapper>

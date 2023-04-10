@@ -22,31 +22,57 @@ public class BizAccountService {
 
     public String saveSltrBizMktRel(SltrLcBizMktRelVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId(TableKeyCode.SLTR_TBL_012.name()));
-        return bizAccountMapper.saveSltrBizMktRel(vo);
+        bizAccountMapper.saveSltrBizMktRel(vo);
+        return vo.getOBJ_ID();
     }
 
     // update
     public SltrLcBizDefVO updateSltrLcBizDef(SltrLcBizDefVO vo){
+        System.out.println(" Update Service : " + vo.toString());
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
         }
-        return bizAccountMapper.updateSltrLcBizDef(vo);
+        bizAccountMapper.updateSltrLcBizDef(vo);
+        return bizAccountMapper.getSltrLcBizDefById(vo.getOBJ_ID());
     }
 
     public SltrLcBizMktRelVO updateSltrBizMktRel(SltrLcBizMktRelVO vo){
+        System.out.println(" Update Service : " + vo.toString());
         if(vo.getOBJ_ID().isEmpty()){
             throw new NullPointerException("Object id is empty");
         }
-        return bizAccountMapper.updateSltrBizMktRel(vo);
+        bizAccountMapper.updateSltrBizMktRel(vo);
+
+        return bizAccountMapper.getSltrBizMktRelById(vo.getOBJ_ID());
     }
 
     // delete
 
     public SltrLcBizDefVO deleteSltrLcBizDefById(String id){
-        return bizAccountMapper.deleteSltrLcBizDefById(id);
+        SltrLcBizDefVO vo = this.getSltrLcBizDefById(id);
+        if(vo == null){
+            throw new NullPointerException("Id is not defined" + id);
+        }
+        bizAccountMapper.deleteSltrLcBizDefById(id);
+        System.out.println(vo.toString());
+        return vo;
     }
 
     public SltrLcBizMktRelVO deleteSltrBizMktRelById(String id){
-        return bizAccountMapper.deleteSltrBizMktRelById(id);
+        SltrLcBizMktRelVO vo = this.getSltrBizMktRelById(id);
+        if(vo == null){
+            throw new NullPointerException("Id is not defined" + id);
+        }
+        bizAccountMapper.deleteSltrBizMktRelById(id);
+        return vo;
+    }
+
+    // get
+    public SltrLcBizDefVO getSltrLcBizDefById(String id){
+        return bizAccountMapper.getSltrLcBizDefById(id);
+    }
+
+    public SltrLcBizMktRelVO getSltrBizMktRelById(String id){
+        return bizAccountMapper.getSltrBizMktRelById(id);
     }
 }

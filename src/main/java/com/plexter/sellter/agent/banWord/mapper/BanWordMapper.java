@@ -11,7 +11,7 @@ public interface BanWordMapper {
     // 등록
     void save(SltrLcBanWordDefVO vo);
 
-    SltrLcBanWordDefVO update(SltrLcBanWordDefVO vo);
+    void update(SltrLcBanWordDefVO vo);
 
     SltrLcBanWordDefVO selectById(String objectId);
 
