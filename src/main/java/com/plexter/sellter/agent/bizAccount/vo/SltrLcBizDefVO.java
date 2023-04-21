@@ -21,9 +21,9 @@ public class SltrLcBizDefVO {
     @Schema(name = "OBJ_ID", description = "TBD")
     @JsonProperty("OBJ_ID")
     private String OBJ_ID;
-    @Schema(name = "USER_ID", description = "사용자 ID")
-    @JsonProperty("USER_ID")
-    private String USER_ID;
+    @Schema(name = "USER_OBJ_ID", description = "사용자 ID")
+    @JsonProperty("USER_OBJ_ID")
+    private String USER_OBJ_ID;
     @Schema(name = "BIZ_REG_NUM", description = "사업자 등록번호")
     @JsonProperty("BIZ_REG_NUM")
     private String BIZ_REG_NUM;

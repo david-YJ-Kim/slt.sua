@@ -16,6 +16,8 @@ public class BizAccountService {
     // insert
     public String saveSltrLcBizDef(SltrLcBizDefVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId(TableKeyCode.SLTR_TBL_011.name()));
+        System.out.println(vo.toString());
+
         bizAccountMapper.saveSltrLcBizDef(vo);
         return vo.getOBJ_ID();
     }
