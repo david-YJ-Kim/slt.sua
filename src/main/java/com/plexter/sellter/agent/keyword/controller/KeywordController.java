@@ -21,6 +21,7 @@ public class KeywordController {
     @Operation(description = "TBD", summary = "TBD")
     public String postSltrLcKeyword(@RequestBody SltrLcKeywordVO vo){
         System.out.println(vo.toString());
+        System.out.println("Execute Scrap Service. run scrap Manager.");
         return service.saveSltrLcKeyword(vo);
     }
     @ResponseStatus(value = HttpStatus.OK)
