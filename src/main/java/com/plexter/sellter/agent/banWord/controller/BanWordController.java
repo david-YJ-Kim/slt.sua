@@ -22,7 +22,6 @@ public class BanWordController {
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
     public void postBanWord(@RequestBody SltrLcBanWordDefVO vo){
-        System.out.println("Hello");
         System.out.println(vo.toString());
         banWordService.addBanWord(vo);
     }

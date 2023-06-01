@@ -4,8 +4,20 @@ mybatis:
 
 spring:
   datasource:
-    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter.sqlite3
+#    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter.sqlite3
+    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter_sean.sqlite3
     driver-class-name: org.sqlite.JDBC
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+  artemis:
+    mode: native
+    broker-url: "localhost:10001"
+    user: "david"
+    password: "admin"
+
+scrap:
+  resource:
+    path: C:/Workspace/sellter/sellter.agent.ali.scarpper/scrapService.js
+

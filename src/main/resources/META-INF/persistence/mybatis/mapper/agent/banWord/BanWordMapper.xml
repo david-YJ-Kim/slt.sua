@@ -7,7 +7,7 @@
     <insert id="save" parameterType="com.plexter.sellter.agent.banWord.vo.SltrLcBanWordDefVO" useGeneratedKeys="true" keyProperty="OBJ_ID">
         INSERT INTO SLTR_LC_BAN_WORD_DEF
         (OBJ_ID, USER_OBJ_ID, BAN_WORD, LANG_CD, WORD_CATE_CD, ALTER_WORD, USE_YN)
-        VALUES(#{OBJ_ID}, "tsdavid",#{BAN_WORD}, #{LANG_CD}, #{WORD_CATE_CD}, #{ALTER_WORD}, #{USE_YN});
+        VALUES(#{OBJ_ID}, #{USER_OBJ_ID},#{BAN_WORD}, #{LANG_CD}, #{WORD_CATE_CD}, #{ALTER_WORD}, #{USE_YN});
     </insert>
 
     <update id="update" parameterType="com.plexter.sellter.agent.banWord.vo.SltrLcBanWordDefVO">

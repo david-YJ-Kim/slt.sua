@@ -3,10 +3,38 @@ package com.plexter.sellter.agent.util;
 import com.plexter.sellter.agent.util.code.CommonCode;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import static java.lang.System.out;
 
 public class ScrapCommonUtil {
+
+    public static ChromeOptions getDriverOption(boolean headless){
+        ChromeOptions options = new ChromeOptions();
+        if(headless) options.addArguments("headless");
+        return options;
+    }
+
+
+    /**
+     * In this example, we first use the Runtime.getRuntime().availableProcessors() method to get the number of available CPUs or processor cores in the system.
+     * We then calculate the optimal thread pool size based on this value, using the following formula:
+     *
+     * We subtract 1 from the number of cores to leave one core available for other system tasks.
+     * We limit the maximum pool size to 5 threads to avoid excessive resource consumption.
+     * We ensure that the minimum pool size is at least 2 threads to allow for parallel processing.
+     * This approach should provide a reasonable starting point for setting the thread pool size based on the machine's available resources.
+     * However, it's important to monitor system performance and adjust the pool size as needed based on the specific requirements of the application and the workload.
+     * @param minWorkerCnt
+     * @param maxWorkerCnt
+     * @return
+     */
+    public static int getSuitablePoolSize(int minWorkerCnt, int maxWorkerCnt, int bufferWorkerCnt){
+
+        int numCores = Runtime.getRuntime().availableProcessors();
+        int poolSize = Math.max(minWorkerCnt, Math.min(numCores - bufferWorkerCnt, maxWorkerCnt));
+        return poolSize;
+    }
 
     public boolean isChromeDriverSet(){
 
@@ -29,7 +57,7 @@ public class ScrapCommonUtil {
      * @param interval
      * @throws InterruptedException
      */
-    private static void scroll_down_and_up_interval(WebDriver driver, int interval, int scrollPauseSec) throws InterruptedException{
+    public static void scroll_down_and_up_interval(WebDriver driver, int interval, int scrollPauseSec) throws InterruptedException{
 
         int SCROLL_PAUSE_SEC = scrollPauseSec;
         int start = 0;

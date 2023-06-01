@@ -4,7 +4,6 @@ import com.plexter.sellter.agent.scrap.code.SourceMarketCode;
 import com.plexter.sellter.agent.scrap.util.DriverActionUtil;
 import com.plexter.sellter.agent.util.code.CommonCode;
 import com.plexter.sellter.agent.util.ScrapCommonUtil;
-import org.jetbrains.annotations.NotNull;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -25,7 +24,7 @@ public class SourceProductScrapper {
 
     public static void main(String[] args) {
 
-        System.setProperty(SourceMarketCode.CHR_DRIVER_PROP.getCode(), "C:\\Users\\tspsc\\Downloads\\chromedriver_win32\\chromedriver.exe");
+        System.setProperty(SourceMarketCode.CHR_DRIVER_PROP.getCode(), "C:\\Users\\tspsc\\Downloads\\chromedriver_win32 (1)\\chromedriver.exe");
         System.out.println(System.getProperty(SourceMarketCode.ALI_PRD_URL_FORMAT.getCode()));
 
         System.out.println(new ScrapCommonUtil().isChromeDriverSet());
@@ -35,7 +34,7 @@ public class SourceProductScrapper {
 
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        WebDriver  driver = new ChromeDriver(options);
+        WebDriver  driver = new  ChromeDriver(options);
 
         SourceProductScrapper.elapsedTest(driver);
 //        for(int i = 0; i < 10; i++){
@@ -322,7 +321,7 @@ public class SourceProductScrapper {
 
     public void execute(String itemId){}
 
-    public void execute(String itemId, @NotNull String urlFormat){
+    public void execute(String itemId, String urlFormat){
 
         System.out.println(String.format(urlFormat, itemId));
 

@@ -9,12 +9,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class KeywordService {
 
+//    ScrapServiceManager scrapServiceManager = ScrapServiceManager.getInstance();
+
     @Autowired
     KeywordMapper keywordMapper;
 
     public String saveSltrLcKeyword(SltrLcKeywordVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCKWO"));
         keywordMapper.saveSltrLcKeyword(vo);
+//        scrapServiceManager.receiveOrderSheet(vo);
+
         return vo.getOBJ_ID();
     }
 
