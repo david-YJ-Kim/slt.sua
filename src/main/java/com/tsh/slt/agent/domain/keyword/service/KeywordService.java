@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.keyword.service;
 
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.domain.keyword.mapper.KeywordMapper;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
 import org.springframework.beans.factory.annotation.Autowired;

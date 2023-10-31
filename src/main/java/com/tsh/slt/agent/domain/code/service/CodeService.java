@@ -2,7 +2,7 @@ package com.tsh.slt.agent.domain.code.service;
 
 import com.tsh.slt.agent.domain.code.mapper.CodeMapper;
 import com.tsh.slt.agent.domain.code.vo.SltrLcCodeDefVO;
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

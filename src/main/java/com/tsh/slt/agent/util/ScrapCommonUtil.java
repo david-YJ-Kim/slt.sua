@@ -1,6 +1,6 @@
-package com.tsh.slt.agent.domain.util;
+package com.tsh.slt.agent.util;
 
-import com.tsh.slt.agent.domain.util.code.CommonCode;
+import com.tsh.slt.agent.util.code.CommonCode;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;

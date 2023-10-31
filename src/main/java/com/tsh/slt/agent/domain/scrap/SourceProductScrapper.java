@@ -2,8 +2,8 @@ package com.tsh.slt.agent.domain.scrap;
 
 import com.tsh.slt.agent.domain.scrap.code.SourceMarketCode;
 import com.tsh.slt.agent.domain.scrap.util.DriverActionUtil;
-import com.tsh.slt.agent.domain.util.code.CommonCode;
-import com.tsh.slt.agent.domain.util.ScrapCommonUtil;
+import com.tsh.slt.agent.util.code.CommonCode;
+import com.tsh.slt.agent.util.ScrapCommonUtil;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

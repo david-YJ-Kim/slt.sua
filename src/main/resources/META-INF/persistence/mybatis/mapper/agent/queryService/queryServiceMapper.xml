@@ -3,7 +3,7 @@
 <mapper namespace="com.tsh.slt.agent.domain.main.mapper.QueryServiceMapper">
 
     <!-- Select -->
-    <select id="executeQuery" parameterType="String" resultType="com.tsh.slt.agent.domain.util.CamelHashMap">
+    <select id="executeQuery" parameterType="String" resultType="com.tsh.slt.agent.util.CamelHashMap">
         #{query}
     </select>
 

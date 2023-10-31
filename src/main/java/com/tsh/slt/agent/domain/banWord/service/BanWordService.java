@@ -2,7 +2,7 @@ package com.tsh.slt.agent.domain.banWord.service;
 
 import com.tsh.slt.agent.domain.banWord.mapper.BanWordMapper;
 import com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO;
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

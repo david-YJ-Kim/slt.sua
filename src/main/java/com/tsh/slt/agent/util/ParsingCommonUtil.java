@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.util;
+package com.tsh.slt.agent.util;
 
 public class ParsingCommonUtil {
 

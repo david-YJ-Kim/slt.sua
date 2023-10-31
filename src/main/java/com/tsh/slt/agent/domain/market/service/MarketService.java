@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.market.service;
 
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.domain.market.mapper.MarketMapper;
 import com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.util.code;
+package com.tsh.slt.agent.util.code;
 
 public enum TableKeyCode {
 

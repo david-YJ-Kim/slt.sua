@@ -3,8 +3,8 @@ package com.tsh.slt.agent.domain.bizAccount.service;
 import com.tsh.slt.agent.domain.bizAccount.mapper.BizAccountMapper;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO;
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
-import com.tsh.slt.agent.domain.util.code.TableKeyCode;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.code.TableKeyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

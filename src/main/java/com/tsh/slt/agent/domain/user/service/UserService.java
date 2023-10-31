@@ -3,7 +3,7 @@ package com.tsh.slt.agent.domain.user.service;
 import com.tsh.slt.agent.domain.user.mapper.UserMapper;
 import com.tsh.slt.agent.domain.user.vo.SltrLcImgDtlVO;
 import com.tsh.slt.agent.domain.user.vo.SltrLcUserVO;
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

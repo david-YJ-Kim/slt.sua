@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.product.service;
 
-import com.tsh.slt.agent.domain.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.domain.product.mapper.ProductMapper;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlImgVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlVO;

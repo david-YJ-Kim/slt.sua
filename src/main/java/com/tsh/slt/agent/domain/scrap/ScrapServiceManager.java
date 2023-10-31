@@ -3,7 +3,7 @@ package com.tsh.slt.agent.domain.scrap;
 import com.tsh.slt.agent.domain.scrap.code.SourceMarketCode;
 import com.tsh.slt.agent.domain.scrap.work.ScrapServiceWorker;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
-import com.tsh.slt.agent.domain.util.ScrapCommonUtil;
+import com.tsh.slt.agent.util.ScrapCommonUtil;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
