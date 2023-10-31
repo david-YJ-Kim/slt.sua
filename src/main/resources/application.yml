@@ -13,11 +13,20 @@ spring:
 
   artemis:
     mode: native
-    broker-url: "localhost:10001"
-    user: "david"
+    broker-url: "tcp://tsdavid9.ddns.net:7222"
+    user: "admin"
     password: "admin"
 
 scrap:
   resource:
     path: C:/Workspace/sellter/sellter.agent.ali.scarpper/scrapService.js
 
+ems:
+   #host: "tcp://tsdavid9.ddns.net"
+   host: "tcp://localhost"
+   port: "7222"
+   user: "admin"
+   password: ""
+   destination:
+     receive: "slt.receive.queue"
+     request: "slt.request.queue"

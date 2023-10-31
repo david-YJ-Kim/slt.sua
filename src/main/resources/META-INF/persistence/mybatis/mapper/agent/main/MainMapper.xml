@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.plexter.sellter.agent.main.mapper.MainMapper">
+<mapper namespace="com.tsh.slt.agent.domain.main.mapper.MainMapper">
 
-<!--    <select id="getMonthRecordList" resultType="com.plexter.sellter.agent.main.vo.MonthRecordListVo">-->
+<!--    <select id="getMonthRecordList" resultType="vo.main.com.tsh.slt.agent.MonthRecordListVo">-->
 <!--        SELECT SUB.LICENSE_NAME, MARKET_NAME_CD, SUM(TOTAL_SALES) AS AMOUNT FROM SELLTER_USER_SALES SUS, SELLTER_USER_BIZLICENSE SUB-->
 <!--        WHERE SUS.USER_OBJ_ID = (SELECT SUI.OBJ_ID FROM SELLTER_USER_INFO SUI WHERE USER_ID = #{userId})-->
 <!--          AND SUB.OBJ_ID = SUS.LICENSE_OBJ_ID-->
@@ -11,7 +11,7 @@
 <!--        ORDER BY SUB.LICENSE_NAME, MARKET_NAME_CD;-->
 <!--    </select>-->
 
-<!--    <select id="getMonthlyRecordList" resultType="com.plexter.sellter.agent.main.vo.MonthlyRecordListVo">-->
+<!--    <select id="getMonthlyRecordList" resultType="vo.main.com.tsh.slt.agent.MonthlyRecordListVo">-->
 <!--        SELECT SUB.LICENSE_NAME, MARKET_NAME_CD, strftime('%m', SUS.CREATE_DATE) AS CREATE_DATE , SUM(TOTAL_SALES) AS AMOUNT FROM SELLTER_USER_SALES_HIST SUS, SELLTER_USER_BIZLICENSE SUB-->
 <!--        WHERE SUS.USER_OBJ_ID = (SELECT SUI.OBJ_ID FROM SELLTER_USER_INFO SUI WHERE USER_ID = #{userId})-->
 <!--          AND SUB.OBJ_ID = SUS.LICENSE_OBJ_ID-->
@@ -19,7 +19,7 @@
 <!--        ORDER BY SUB.LICENSE_NAME, MARKET_NAME_CD-->
 <!--    </select>-->
 
-<!--    <select id="getTopSellingItemList" resultType="com.plexter.sellter.agent.main.vo.TopSellingItemListVo">-->
+<!--    <select id="getTopSellingItemList" resultType="vo.main.com.tsh.slt.agent.TopSellingItemListVo">-->
 <!--        SELECT SUB.LICENSE_NAME, SUS.MARKET_NAME_CD, SUS.MARKET_ITEM_ID, strftime('%d', SUS.CREATE_DATE) AS CREATE_DATE, COUNT(SUS.MARKET_ITEM_ID) AS ITEM_CNT-->
 <!--        FROM SELLTER_USER_SALES SUS, SELLTER_USER_BIZLICENSE SUB-->
 <!--        WHERE SUS.USER_OBJ_ID = (SELECT SUI.OBJ_ID FROM SELLTER_USER_INFO SUI WHERE USER_ID = #{userId})-->
@@ -29,7 +29,7 @@
 <!--        ORDER BY COUNT(SUS.MARKET_ITEM_ID) DESC;-->
 <!--    </select>-->
 
-<!--    <select id="getOrderDashBoard" resultType="com.plexter.sellter.agent.main.vo.OrderDashBoardListVo">-->
+<!--    <select id="getOrderDashBoard" resultType="vo.main.com.tsh.slt.agent.OrderDashBoardListVo">-->
 <!--        SELECT SUB.LICENSE_NAME, SUS.MARKET_NAME_CD, SUS.ORDER_STATE_CD, COUNT(SUS.ORDER_STATE_CD) AS ITEM_CNT FROM SELLTER_USER_SALES SUS, SELLTER_USER_BIZLICENSE SUB-->
 <!--        WHERE SUS.USER_OBJ_ID = (SELECT SUI.OBJ_ID FROM SELLTER_USER_INFO SUI WHERE USER_ID = #{userId})-->
 <!--          AND SUB.OBJ_ID = SUS.LICENSE_OBJ_ID-->

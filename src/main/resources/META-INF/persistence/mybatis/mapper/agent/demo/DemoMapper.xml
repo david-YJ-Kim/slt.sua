@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.plexter.sellter.agent.demo.mapper.DemoMapper">
+<mapper namespace="com.tsh.slt.agent.domain.demo.mapper.DemoMapper">
 
 <!--    parameterType 이 VO 이면 VO Class Name 기재, ex) UserInfoVO   resultType 역시 VO 이면 ClassName 기재 ex) MyAllApiListVO-->
 <!--    변수는 VO Schema 이름, 즉, VO class 내, 변수명으로 동일하게 맞춰준-->

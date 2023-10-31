@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.plexter.sellter.agent.keyword.mapper.KeywordMapper">
+<mapper namespace="com.tsh.slt.agent.domain.keyword.mapper.KeywordMapper">
 
     <!-- INSERT -->
-    <insert id="saveSltrLcKeyword" parameterType="com.plexter.sellter.agent.keyword.vo.SltrLcKeywordVO">
+    <insert id="saveSltrLcKeyword" parameterType="com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO">
         INSERT INTO SLTR_LC_KEYWORD
         (OBJ_ID, USER_OBJ_ID, PROD_KEYWORD, SRC_MKT_ID, KEYWORD_URL, SEARCH_KEYWORD, SUBJECT_KEYWORD, SUBJECT_LOC_TYPE, HASH_TAG,
          AUTO_SEARCH_YN, COLLECT_START_PAGE, COLLECT_END_PAGE, BASE_MGN_RATE, BASE_MGN_VALUE, REGIST_DATE, COLLECT_PROD_YN, LAST_COLLECT_DATE, PROD_QTY, COLLECT_QTY,
@@ -16,7 +16,7 @@
 
 
     <!-- UPDATE -->
-    <update id="updateSltrLcKeyword" parameterType="com.plexter.sellter.agent.keyword.vo.SltrLcKeywordVO">
+    <update id="updateSltrLcKeyword" parameterType="com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO">
         UPDATE SLTR_LC_KEYWORD
         SET KEYWORD_URL=#{KEYWORD_URL}, SEARCH_KEYWORD=#{SEARCH_KEYWORD}, SUBJECT_KEYWORD=#{SUBJECT_KEYWORD}, SUBJECT_LOC_TYPE=#{SUBJECT_LOC_TYPE}, HASH_TAG=#{HASH_TAG},
             AUTO_SEARCH_YN=#{AUTO_SEARCH_YN}, COLLECT_START_PAGE=#{COLLECT_START_PAGE}, COLLECT_END_PAGE=#{COLLECT_END_PAGE}, BASE_MGN_RATE=#{BASE_MGN_RATE}, BASE_MGN_VALUE=#{BASE_MGN_VALUE},
@@ -36,7 +36,7 @@
 
 
     <!-- GET -->
-    <select id="getSltrLcKeywordById" parameterType="String" resultType="com.plexter.sellter.agent.keyword.vo.SltrLcKeywordVO">
+    <select id="getSltrLcKeywordById" parameterType="String" resultType="com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO">
         SELECT * FROM SLTR_LC_KEYWORD
         WHERE OBJ_ID=#{OBJ_ID}
     </select>
