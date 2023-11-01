@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.bizAccount.controller;
+package com.tsh.slt.agent.rest.bizAccount;
 
 import com.tsh.slt.agent.domain.bizAccount.service.BizAccountService;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO;

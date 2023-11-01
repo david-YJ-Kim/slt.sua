@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.main.controller;
+package com.tsh.slt.agent.rest.main;
 
 import com.tsh.slt.agent.domain.main.mapper.QueryServiceMapper;
 import org.apache.commons.lang3.StringUtils;

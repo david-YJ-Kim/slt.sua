@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.user.controller;
+package com.tsh.slt.agent.rest.user;
 
 import com.tsh.slt.agent.domain.user.dto.UserMasterDataDTO;
 import com.tsh.slt.agent.domain.user.service.UserService;

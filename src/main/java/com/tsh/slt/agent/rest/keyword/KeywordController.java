@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.keyword.controller;
+package com.tsh.slt.agent.rest.keyword;
 
 import com.tsh.slt.agent.domain.keyword.service.KeywordService;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;

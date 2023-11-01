@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.code.controller;
+package com.tsh.slt.agent.rest.code;
 
 import com.tsh.slt.agent.domain.code.service.CodeService;
 import com.tsh.slt.agent.domain.code.vo.SltrLcCodeDefVO;

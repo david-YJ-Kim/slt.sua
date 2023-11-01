@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.market.controller;
+package com.tsh.slt.agent.rest.market;
 
 import com.tsh.slt.agent.domain.market.service.MarketService;
 import com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO;

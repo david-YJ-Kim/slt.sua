@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.demo.controller;
+package com.tsh.slt.agent.rest.demo;
 
 import com.tsh.slt.agent.domain.demo.service.DemoService;
 import com.tsh.slt.agent.domain.demo.vo.MyAllApiListVo;

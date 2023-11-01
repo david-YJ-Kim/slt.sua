@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.banWord.controller;
+package com.tsh.slt.agent.rest.banWord;
 
 import com.tsh.slt.agent.domain.banWord.service.BanWordService;
 import com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO;
