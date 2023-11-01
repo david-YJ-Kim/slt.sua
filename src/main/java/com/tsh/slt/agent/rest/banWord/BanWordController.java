@@ -1,7 +1,7 @@
 package com.tsh.slt.agent.rest.banWord;
 
 import com.tsh.slt.agent.domain.banWord.service.BanWordService;
-import com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO;
+import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class BanWordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public void postBanWord(@RequestBody SltrLcBanWordDefVO vo){
+    public void postBanWord(@RequestBody BanWordDefVO vo){
         System.out.println(vo.toString());
         banWordService.addBanWord(vo);
     }
@@ -29,7 +29,7 @@ public class BanWordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/putBanWord", method = RequestMethod.PUT)
     @Operation(description = "TBD", summary = "TBD")
-    public void updateBanWord(@RequestBody SltrLcBanWordDefVO vo){
+    public void updateBanWord(@RequestBody BanWordDefVO vo){
         System.out.println(vo.toString());
         banWordService.updateBanWord(vo);
     }
@@ -37,7 +37,7 @@ public class BanWordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/getBanWord", method = RequestMethod.GET)
     @Operation(description = "TBD", summary = "TBD")
-    public SltrLcBanWordDefVO selectBanWordById(@RequestParam("id") String objectId){
+    public BanWordDefVO selectBanWordById(@RequestParam("id") String objectId){
         System.out.println(objectId);
         return banWordService.getBanWordById(objectId);
     }
@@ -45,14 +45,14 @@ public class BanWordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/getAllBanWord", method = RequestMethod.GET)
     @Operation(description = "TBD", summary = "TBD")
-    public List<SltrLcBanWordDefVO> selectAllBanWord(){
+    public List<BanWordDefVO> selectAllBanWord(){
         return banWordService.getAllBanWord();
     }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/getBanWordByWord", method = RequestMethod.GET)
     @Operation(description = "TBD", summary = "TBD")
-    public List<SltrLcBanWordDefVO> selectBanWordByWord(@RequestParam("word") String word){
+    public List<BanWordDefVO> selectBanWordByWord(@RequestParam("word") String word){
         System.out.println(word);
         return banWordService.getBanWordByWord(word);
     }

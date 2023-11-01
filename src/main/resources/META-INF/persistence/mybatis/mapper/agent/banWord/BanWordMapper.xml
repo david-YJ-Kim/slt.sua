@@ -4,13 +4,13 @@
 
     <!--    parameterType 이 VO 이면 VO Class Name 기재, ex) UserInfoVO   resultType 역시 VO 이면 ClassName 기재 ex) MyAllApiListVO-->
     <!--    변수는 VO Schema 이름, 즉, VO class 내, 변수명으로 동일하게 맞춰준-->
-    <insert id="save" parameterType="com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO" useGeneratedKeys="true" keyProperty="OBJ_ID">
+    <insert id="save" parameterType="com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO" useGeneratedKeys="true" keyProperty="OBJ_ID">
         INSERT INTO SLTR_LC_BAN_WORD_DEF
         (OBJ_ID, USER_OBJ_ID, BAN_WORD, LANG_CD, WORD_CATE_CD, ALTER_WORD, USE_YN)
         VALUES(#{OBJ_ID}, #{USER_OBJ_ID},#{BAN_WORD}, #{LANG_CD}, #{WORD_CATE_CD}, #{ALTER_WORD}, #{USE_YN});
     </insert>
 
-    <update id="update" parameterType="com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO">
+    <update id="update" parameterType="com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO">
 --         UPDATE SLTR_LC_BAN_WORD_DEF
 --         SET LANG_CD=#{LANG_CD}, ALTER_WORD=#{ALTER_WORD}, USE_YN=#{USE_YN}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
 --         WHERE OBJ_ID=#{OBJ_ID}
@@ -21,15 +21,15 @@
 
     </update>
 
-    <select id="selectById" parameterType="String" resultType="com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO" >
+    <select id="selectById" parameterType="String" resultType="com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO" >
         SELECT * FROM SLTR_LC_BAN_WORD_DEF WHERE OBJ_ID = #{objectId}
     </select>
 
-    <select id="selectByWord" parameterType="String" resultType="com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO" >
+    <select id="selectByWord" parameterType="String" resultType="com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO" >
         SELECT * FROM SLTR_LC_BAN_WORD_DEF WHERE BAN_WORD = #{word}
     </select>
 
-    <select id="selectAll" resultType="com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO">
+    <select id="selectAll" resultType="com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO">
         SELECT * FROM SLTR_LC_BAN_WORD_DEF
     </select>
 

@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.banWord.mapper;
 
-import com.tsh.slt.agent.domain.banWord.vo.SltrLcBanWordDefVO;
+import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -9,15 +9,15 @@ import java.util.List;
 public interface BanWordMapper {
 
     // 등록
-    void save(SltrLcBanWordDefVO vo);
+    void save(BanWordDefVO vo);
 
-    void update(SltrLcBanWordDefVO vo);
+    void update(BanWordDefVO vo);
 
-    SltrLcBanWordDefVO selectById(String objectId);
+    BanWordDefVO selectById(String objectId);
 
-    List<SltrLcBanWordDefVO> selectAll();
+    List<BanWordDefVO> selectAll();
 
-    List<SltrLcBanWordDefVO> selectByWord(String word);
+    List<BanWordDefVO> selectByWord(String word);
 
     void deleteById(String objectId);
 

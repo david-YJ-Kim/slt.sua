@@ -14,7 +14,7 @@ import lombok.ToString;
 @JsonInclude(value = JsonInclude.Include.ALWAYS)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Schema(name = "SltrLcBanWordDefVO", description = "TBD")
-public class SltrLcBanWordDefVO {
+public class BanWordDefVO {
 
     @Schema(name = "OBJ_ID", description = "TBD")
     @JsonProperty("OBJ_ID")
