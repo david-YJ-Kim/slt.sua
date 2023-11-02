@@ -16,7 +16,7 @@ import java.sql.Timestamp;
 @Entity(name = "SLTR_LC_BAN_WORD_DEF")
 public class BanWordEntity {
 
-    @Id
+    @javax.persistence.Id
     @GenericGenerator(name = "SLTR_LC_BAN_WORD_DEF_SEQ_GENERATOR", strategy = "com.tsh.slt.agent.util.ObjIdGenerator")
     @GeneratedValue(generator = "SLTR_LC_BAN_WORD_DEF_SEQ_GENERATOR")
     private String objId;

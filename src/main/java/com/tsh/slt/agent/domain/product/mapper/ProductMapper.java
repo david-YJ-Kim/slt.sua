@@ -4,7 +4,9 @@ import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlImgVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdRegistVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdVO;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface ProductMapper {
 
     // Create

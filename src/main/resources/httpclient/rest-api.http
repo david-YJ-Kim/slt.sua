@@ -1,0 +1,16 @@
+### POST Save Request DTO
+POST http://localhost:8088/banWord/postBanWord
+Content-Type: application/json
+
+{
+  "userObjId": "DavidKim",
+  "bandWord": "Ban-Word",
+  "langCode": "KR",
+  "wordCateCode": "BAN",
+  "alterWord": "",
+  "useYn": "Y",
+  "createDate": "2023-11-02",
+  "createUserId": "DavidKim",
+  "updateDate": "2023-11-02",
+  "updateUserId": "DavidKim"
+}

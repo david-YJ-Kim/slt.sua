@@ -1,3 +1,6 @@
+server:
+  port: 8088
+
 mybatis:
   mapper-locations: classpath*:META-INF/persistence/mybatis/mapper/**/*.xml
   type-aliases-package: com.plexter.sellter.agent.**.vo
@@ -15,7 +18,7 @@ spring:
       ddl-auto: update
   datasource:
 #    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter_sean.sqlite3
-    url: jdbc:sqlite:sqlitesample.db
+    url: jdbc:sqlite:sqlitesample-agent.db
     driver-class-name: org.sqlite.JDBC
     username: admin
     password: admin

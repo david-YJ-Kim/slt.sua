@@ -1,24 +1,28 @@
 package com.tsh.slt.agent.domain.banWord.service;
 
 import com.tsh.slt.agent.domain.banWord.mapper.BanWordMapper;
+import com.tsh.slt.agent.domain.banWord.repository.BanWordEntityRepository;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
-import com.tsh.slt.agent.util.ParsingCommonUtil;
+import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
+@RequiredArgsConstructor
 @Service
 public class BanWordService {
-
+    private final BanWordEntityRepository banWordEntityRepository;
 
     @Autowired
     BanWordMapper banWordMapper;
 
-    public void addBanWord(BanWordDefVO vo){
+    public String saveBanWord(BanWordSaveRequestDto requestDto){
 
-        vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCBAN"));
-        banWordMapper.save(vo);
+        return banWordEntityRepository.save(requestDto.toEntity()).getObjId();
     }
 
     public void updateBanWord(BanWordDefVO vo){
