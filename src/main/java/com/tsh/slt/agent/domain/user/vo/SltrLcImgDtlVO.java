@@ -25,24 +25,31 @@ public class SltrLcImgDtlVO {
     @Schema(name = "USER_ID", description = "Value : Email Address  *String Format checker 필요")
     @JsonProperty("USER_ID")
     private String USER_ID;
-    @Schema(name = "IMG_TYPE", description = "이미지 파일 유형 (TOP:상단이미지, BOT:하단이미지, Thumnail:썸네일, DTL:상세페이지)")
+
+    @Schema(name = "IMG_TYPE", description = "이미지 파일 유형 (TOP:상단이미지, BOT:하단이미지, Thumb:썸네일, DTL:상세페이지)")
     @JsonProperty("IMG_TYPE")
     private String IMG_TYPE;
+
     @Schema(name = "IMG_FILE_PATH", description = "이미지 로컬 파일 경로")
     @JsonProperty("IMG_FILE_PATH")
     private String IMG_FILE_PATH;
+
     @Schema(name = "IMG_SEQ", description = "USER_ID + IMG_TYPE + IMG_FILE_PATH 내에서 File 간의 순서 정보")
     @JsonProperty("IMG_SEQ")
     private String IMG_SEQ;
+
     @Schema(name = "IMG_FILE_NAME", description = "이미지 파일 이름")
     @JsonProperty("IMG_FILE_NAME")
     private String IMG_FILE_NAME;
+
     @Schema(name = "IMG_FILE_SIZE", description = "단위 KB")
     @JsonProperty("IMG_FILE_SIZE")
     private Integer IMG_FILE_SIZE;
+
     @Schema(name = "CREATE_USER_ID", description = "생성자")
     @JsonProperty("CREATE_USER_ID")
     private String CREATE_USER_ID;
+
     @Schema(name = "UPDATE_USER_ID", description = "수정자")
     @JsonProperty("UPDATE_USER_ID")
     private String UPDATE_USER_ID;
