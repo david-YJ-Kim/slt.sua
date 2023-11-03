@@ -5,6 +5,7 @@ import com.tsh.slt.agent.util.CommonDto;
 import com.tsh.slt.agent.util.code.LangCode;
 import com.tsh.slt.agent.util.code.UseYn;
 import com.tsh.slt.agent.util.code.WordCateCode;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -25,6 +26,7 @@ public class BanWordSaveRequestDto implements CommonDto {
     private Timestamp updateDate;
     private String updateUserId;
 
+    @Builder
     public BanWordSaveRequestDto(String userObjId, String bandWord, String langCode, String wordCateCode, String alterWord, String useYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.userObjId = userObjId;
         this.bandWord = bandWord;

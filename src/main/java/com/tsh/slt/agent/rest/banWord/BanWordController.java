@@ -5,6 +5,7 @@ import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-
+@Slf4j
 @Tag(name = "Sellter Agent Banword Controller. TBL : SLTR_LC_BAN_WORD_DEF")
 @RestController
 @RequestMapping(value = "/banWord")
@@ -25,7 +26,7 @@ public class BanWordController {
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
     public String postBanWord(@RequestBody BanWordSaveRequestDto requestDto){
-        System.out.println(requestDto.toString());
+        log.info(requestDto.toString());
         return banWordService.saveBanWord(requestDto);
     }
 

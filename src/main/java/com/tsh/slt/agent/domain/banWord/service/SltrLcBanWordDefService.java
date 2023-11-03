@@ -1,6 +1,7 @@
 package com.tsh.slt.agent.domain.banWord.service;
 
 import com.tsh.slt.agent.domain.banWord.mapper.SltrLcBanWordDefMapper;
+import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
@@ -9,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Slf4j
@@ -19,6 +21,23 @@ public class SltrLcBanWordDefService {
 
     @Autowired
     SltrLcBanWordDefMapper banWordMapper;
+
+    public void deleteAllEntities(){
+        this.banWordEntityRepository.deleteAll();
+    }
+
+    public SltrLcBanWordDef getBanWordByObjId(String objectId){
+
+        List<SltrLcBanWordDef> sltrLcBanWordDefs = this.banWordEntityRepository.findAllById(Collections.singleton(objectId));
+        if(sltrLcBanWordDefs.size() > 1) {
+            log.error("Duplication Error.");
+            // TODO Throw Invalid 대응 필요
+            return null;
+        }else{
+            return sltrLcBanWordDefs.get(0);
+        }
+
+    }
 
     public String saveBanWord(BanWordSaveRequestDto requestDto){
 
