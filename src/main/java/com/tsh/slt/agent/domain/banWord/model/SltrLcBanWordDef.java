@@ -14,7 +14,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Entity(name = "SLTR_LC_BAN_WORD_DEF")
-public class BanWordEntity {
+public class SltrLcBanWordDef {
 
     @javax.persistence.Id
     @GenericGenerator(name = "SLTR_LC_BAN_WORD_DEF_SEQ_GENERATOR", strategy = "com.tsh.slt.agent.util.ObjIdGenerator")
@@ -55,7 +55,7 @@ public class BanWordEntity {
     private String updateUserId;
 
     @Builder
-    public BanWordEntity(String objId, String userObjId, String bandWord, LangCode langCode, WordCateCode wordCateCode, String alterWord, UseYn useYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    public SltrLcBanWordDef(String objId, String userObjId, String bandWord, LangCode langCode, WordCateCode wordCateCode, String alterWord, UseYn useYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;
         this.bandWord = bandWord;

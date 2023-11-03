@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.bizAccount.service;
 
-import com.tsh.slt.agent.domain.bizAccount.mapper.BizAccountMapper;
+import com.tsh.slt.agent.domain.bizAccount.mapper.SltrLcBizDefMapper;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO;
 import com.tsh.slt.agent.util.ParsingCommonUtil;
@@ -9,9 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BizAccountService {
+public class SltrLcBizDefService {
     @Autowired
-    BizAccountMapper bizAccountMapper;
+    SltrLcBizDefMapper bizAccountMapper;
 
     // insert
     public String saveSltrLcBizDef(SltrLcBizDefVO vo){

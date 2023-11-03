@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.rest.keyword;
 
-import com.tsh.slt.agent.domain.keyword.service.KeywordService;
+import com.tsh.slt.agent.domain.keyword.service.SltrLcKeywordService;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class KeywordController {
 
     @Autowired
-    KeywordService service;
+    SltrLcKeywordService service;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcKeyword", method = RequestMethod.POST)

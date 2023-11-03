@@ -1,7 +1,7 @@
 package com.tsh.slt.agent.domain.banWord.service;
 
-import com.tsh.slt.agent.domain.banWord.mapper.BanWordMapper;
-import com.tsh.slt.agent.domain.banWord.repository.BanWordEntityRepository;
+import com.tsh.slt.agent.domain.banWord.mapper.SltrLcBanWordDefMapper;
+import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -14,11 +14,11 @@ import java.util.List;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class BanWordService {
-    private final BanWordEntityRepository banWordEntityRepository;
+public class SltrLcBanWordDefService {
+    private final SltrLcBanWordDefRepository banWordEntityRepository;
 
     @Autowired
-    BanWordMapper banWordMapper;
+    SltrLcBanWordDefMapper banWordMapper;
 
     public String saveBanWord(BanWordSaveRequestDto requestDto){
 

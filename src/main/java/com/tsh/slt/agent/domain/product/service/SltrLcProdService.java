@@ -1,7 +1,7 @@
 package com.tsh.slt.agent.domain.product.service;
 
 import com.tsh.slt.agent.util.ParsingCommonUtil;
-import com.tsh.slt.agent.domain.product.mapper.ProductMapper;
+import com.tsh.slt.agent.domain.product.mapper.SltrLcProdMapper;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlImgVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdRegistVO;
@@ -10,10 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductService {
+public class SltrLcProdService {
 
     @Autowired
-    ProductMapper mapper;
+    SltrLcProdMapper mapper;
 
     // Create
     public String saveSltrLcProdDtlImg(SltrLcProdDtlImgVO vo){

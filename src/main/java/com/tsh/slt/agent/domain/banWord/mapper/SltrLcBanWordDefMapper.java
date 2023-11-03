@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
 @Mapper
-public interface BanWordMapper {
+public interface SltrLcBanWordDefMapper {
 
     // 등록
     void save(BanWordDefVO vo);

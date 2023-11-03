@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.rest.bizAccount;
 
-import com.tsh.slt.agent.domain.bizAccount.service.BizAccountService;
+import com.tsh.slt.agent.domain.bizAccount.service.SltrLcBizDefService;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class BizAccountController {
 
     @Autowired
-    BizAccountService service;
+    SltrLcBizDefService service;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcBizDef", method = RequestMethod.POST)

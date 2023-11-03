@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.banWord.vo.dto;
 
-import com.tsh.slt.agent.domain.banWord.model.BanWordEntity;
+import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.util.CommonDto;
 import com.tsh.slt.agent.util.code.LangCode;
 import com.tsh.slt.agent.util.code.UseYn;
@@ -39,9 +39,9 @@ public class BanWordSaveRequestDto implements CommonDto {
     }
 
     @Override
-    public BanWordEntity toEntity() {
+    public SltrLcBanWordDef toEntity() {
 
-        return BanWordEntity.builder()
+        return SltrLcBanWordDef.builder()
                 .userObjId(userObjId)
                 .bandWord(bandWord)
                 .langCode(LangCode.valueOf(langCode))

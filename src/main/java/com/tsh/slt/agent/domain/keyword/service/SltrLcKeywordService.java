@@ -1,18 +1,18 @@
 package com.tsh.slt.agent.domain.keyword.service;
 
 import com.tsh.slt.agent.util.ParsingCommonUtil;
-import com.tsh.slt.agent.domain.keyword.mapper.KeywordMapper;
+import com.tsh.slt.agent.domain.keyword.mapper.SltrLcKeywordMapper;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class KeywordService {
+public class SltrLcKeywordService {
 
 //    ScrapServiceManager scrapServiceManager = ScrapServiceManager.getInstance();
 
     @Autowired
-    KeywordMapper keywordMapper;
+    SltrLcKeywordMapper keywordMapper;
 
     public String saveSltrLcKeyword(SltrLcKeywordVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCKWO"));

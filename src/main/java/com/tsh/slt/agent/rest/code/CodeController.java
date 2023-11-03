@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.rest.code;
 
-import com.tsh.slt.agent.domain.code.service.CodeService;
+import com.tsh.slt.agent.domain.code.service.SltrLcCodeDefService;
 import com.tsh.slt.agent.domain.code.vo.SltrLcCodeDefVO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 public class CodeController {
 
     @Autowired
-    CodeService service;
+    SltrLcCodeDefService service;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcCodeDef", method = RequestMethod.POST)

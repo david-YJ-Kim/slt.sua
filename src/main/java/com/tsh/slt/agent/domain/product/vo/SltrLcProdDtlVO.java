@@ -47,12 +47,15 @@ public class SltrLcProdDtlVO {
     @Schema(name = "SOURCE_ITEM_URL", description = "소싱처 아이템 URI")
     @JsonProperty("SOURCE_ITEM_URL")
     private String SOURCE_ITEM_URL;
+
     @Schema(name = "OBJ_STATE_CD", description = "WIP : 데이터 수집 상태, PRD : 배포 가능 상태, ITM : 배포된 상태")
     @JsonProperty("OBJ_STATE_CD")
     private String OBJ_STATE_CD;
+
     @Schema(name = "PRODUCT_FILE_NAME", description = "파일 OBJECT KEY 인, File_name")
     @JsonProperty("PRODUCT_FILE_NAME")
     private String PRODUCT_FILE_NAME;
+
     @Schema(name = "DEPLOY_CP_KEY", description = "쿠팡에서 받은 MKT_ITEM_ID")
     @JsonProperty("DEPLOY_CP_KEY")
     private String DEPLOY_CP_KEY;
@@ -65,33 +68,39 @@ public class SltrLcProdDtlVO {
     @Schema(name = "DEPLOY_SS_DATE", description = "해당 사이트로 배포한 시간")
     @JsonProperty("DEPLOY_SS_DATE")
     private Date DEPLOY_SS_DATE;
+
     @Schema(name = "DEPLOY_11_KEY", description = "11에서 받은 MKT_ITEM_ID")
     @JsonProperty("DEPLOY_11_KEY")
     private String DEPLOY_11_KEY;
     @Schema(name = "DEPLOY_11_DATE", description = "해당 사이트로 배포한 시간")
     @JsonProperty("DEPLOY_11_DATE")
     private Date DEPLOY_11_DATE;
+
     @Schema(name = "DEPLOY_GM_KEY", description = "GM(G마켓)에서 받은 MKT_ITEM_ID")
     @JsonProperty("DEPLOY_GM_KEY")
     private String DEPLOY_GM_KEY;
     @Schema(name = "DEPLOY_GM_DATE", description = "해당 사이트로 배포한 시간")
     @JsonProperty("DEPLOY_GM_DATE")
     private Date DEPLOY_GM_DATE;
+
     @Schema(name = "DEPLOY_AC_KEY", description = "AC(옥션)에서 받은 MKT_ITEM_ID")
     @JsonProperty("DEPLOY_AC_KEY")
     private String DEPLOY_AC_KEY;
     @Schema(name = "DEPLOY_AC_DATE", description = "해당 사이트로 배포한 시간")
     @JsonProperty("DEPLOY_AC_DATE")
     private Date DEPLOY_AC_DATE;
+
     @Schema(name = "DEPLOY_INT_KEY", description = "INT(인터파크)에서 받은 MKT_ITEM_ID")
     @JsonProperty("DEPLOY_INT_KEY")
     private String DEPLOY_INT_KEY;
     @Schema(name = "DEPLOY_INT_DATE", description = "해당 사이트로 배포한 시간")
     @JsonProperty("DEPLOY_INT_DATE")
     private Date DEPLOY_INT_DATE;
+
     @Schema(name = "DEPLOY_EXT_KEY", description = "기 설정된 마켓 외 배포 관리를 위해 외부 연결고리")
     @JsonProperty("DEPLOY_EXT_KEY")
     private String DEPLOY_EXT_KEY;
+
     @Schema(name = "CREATE_USER_ID", description = "생성자")
     @JsonProperty("CREATE_USER_ID")
     private String CREATE_USER_ID;

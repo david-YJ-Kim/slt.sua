@@ -4,7 +4,7 @@ import com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface MarketMapper {
+public interface SltrLcMktDefMapper {
 
     // Create
     void saveSltrLcMktDef(SltrLcMktDefVO vo);

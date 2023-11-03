@@ -1,16 +1,16 @@
 package com.tsh.slt.agent.domain.market.service;
 
 import com.tsh.slt.agent.util.ParsingCommonUtil;
-import com.tsh.slt.agent.domain.market.mapper.MarketMapper;
+import com.tsh.slt.agent.domain.market.mapper.SltrLcMktDefMapper;
 import com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MarketService {
+public class SltrLcMktDefService {
 
     @Autowired
-    MarketMapper mapper;
+    SltrLcMktDefMapper mapper;
 
 
     // Create

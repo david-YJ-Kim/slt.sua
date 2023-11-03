@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.rest.banWord;
 
-import com.tsh.slt.agent.domain.banWord.service.BanWordService;
+import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
@@ -19,7 +19,7 @@ import java.util.List;
 public class BanWordController {
 
     @Autowired
-    BanWordService banWordService;
+    SltrLcBanWordDefService banWordService;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)

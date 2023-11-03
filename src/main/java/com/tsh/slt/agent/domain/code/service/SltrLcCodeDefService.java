@@ -1,16 +1,16 @@
 package com.tsh.slt.agent.domain.code.service;
 
-import com.tsh.slt.agent.domain.code.mapper.CodeMapper;
+import com.tsh.slt.agent.domain.code.mapper.SltrLcCodeDefMapper;
 import com.tsh.slt.agent.domain.code.vo.SltrLcCodeDefVO;
 import com.tsh.slt.agent.util.ParsingCommonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CodeService {
+public class SltrLcCodeDefService {
 
     @Autowired
-    CodeMapper codeMapper;
+    SltrLcCodeDefMapper codeMapper;
 
     public String saveSltrLcCodeDef(SltrLcCodeDefVO vo){
         vo.setOBJ_ID(ParsingCommonUtil.generateObjId("LCCR"));

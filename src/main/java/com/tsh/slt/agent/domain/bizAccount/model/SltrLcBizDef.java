@@ -1,7 +1,6 @@
 package com.tsh.slt.agent.domain.bizAccount.model;
 
 import com.tsh.slt.agent.util.code.UseYn;
-import lombok.Generated;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -12,7 +11,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Entity(name = "SLTR_LC_BIZ_DEF")
-public class BizAccountEntity {
+public class SltrLcBizDef {
 
     @javax.persistence.Id
     @GenericGenerator(name = "SLTR_LC_BIZ_DEF_SEQ_GENERATOR", strategy = "com.tsh.slt.agent.util.ObjIdGenerator")
@@ -66,7 +65,7 @@ public class BizAccountEntity {
     private String updateUserId;
 
 
-    public BizAccountEntity(String objId, String userObjId, String bizRegNum, String bizName, String repUseName, String bizAddr, Timestamp bizStartDate, Integer dispSeq, UseYn useYn, Timestamp lastValidDate, Integer baseMgnRate, Integer baseMgnValue, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    public SltrLcBizDef(String objId, String userObjId, String bizRegNum, String bizName, String repUseName, String bizAddr, Timestamp bizStartDate, Integer dispSeq, UseYn useYn, Timestamp lastValidDate, Integer baseMgnRate, Integer baseMgnValue, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;
         this.bizRegNum = bizRegNum;

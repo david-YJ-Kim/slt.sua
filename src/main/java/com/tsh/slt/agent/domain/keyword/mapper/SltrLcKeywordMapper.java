@@ -4,7 +4,7 @@ import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface KeywordMapper {
+public interface SltrLcKeywordMapper {
 
     // Create
     void saveSltrLcKeyword(SltrLcKeywordVO vo);

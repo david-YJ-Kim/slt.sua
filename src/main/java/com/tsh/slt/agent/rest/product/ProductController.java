@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.product.controller;
 
-import com.tsh.slt.agent.domain.product.service.ProductService;
+import com.tsh.slt.agent.domain.product.service.SltrLcProdService;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlImgVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdRegistVO;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class ProductController {
 
     @Autowired
-    ProductService service;
+    SltrLcProdService service;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcPrdDtlImg", method = RequestMethod.POST)

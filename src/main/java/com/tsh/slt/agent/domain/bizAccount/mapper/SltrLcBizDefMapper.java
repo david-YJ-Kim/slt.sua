@@ -5,7 +5,7 @@ import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface BizAccountMapper {
+public interface SltrLcBizDefMapper {
 
     // Create
     void saveSltrLcBizDef(SltrLcBizDefVO vo);

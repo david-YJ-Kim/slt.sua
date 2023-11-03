@@ -7,7 +7,7 @@ import com.tsh.slt.agent.domain.product.vo.SltrLcProdVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
-public interface ProductMapper {
+public interface SltrLcProdMapper {
 
     // Create
     void saveSltrLcProdDtlImg(SltrLcProdDtlImgVO vo);
