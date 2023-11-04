@@ -2,6 +2,8 @@ package com.tsh.slt.agent.rest.banWord;
 
 import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateRequestDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -18,6 +20,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 enum URI{
     save("/banWord/postBanWord"),
     update("/banWord/putBanWord"),
+
+    updateUseYn("/banWord/updateUseYn"),
 
     delete("/banWord/deleteBanWord");
 
@@ -68,19 +72,7 @@ public class BanWordControllerTest {
 
         String url = ip + port + URI.save.getVal();
 
-
-        String payload = "{\n" +
-                        "  \"userObjId\": \"DavidKim\",\n" +
-                        "  \"bandWord\": \"Ban-Word\",\n" +
-                        "  \"langCode\": \"KR\",\n" +
-                        "  \"wordCateCode\": \"BAN\",\n" +
-                        "  \"alterWord\": \"\",\n" +
-                        "  \"useYn\": \"Y\",\n" +
-                        "  \"createDate\": \"2023-11-02\",\n" +
-                        "  \"createUserId\": \"DavidKim\",\n" +
-                        "  \"updateDate\": \"2023-11-02\",\n" +
-                        "  \"updateUserId\": \"DavidKim\"\n" +
-                        "}";
+        String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
 
         HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
         ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
@@ -94,6 +86,41 @@ public class BanWordControllerTest {
 
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
         assertThat(responseEntity.getBody()).isEqualTo(savedEntity.getObjId());
+
+    }
+
+    @Test
+    public void serviceUpdateUseYnTest(){
+        
+        // 샘플  Save
+        String url = ip + port + URI.save.getVal();
+
+        String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
+
+        HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
+        ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
+
+        String objId = responseEntity.getBody();
+        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId);
+        log.info(savedEntity.getObjId());
+
+        // Update 테스트
+
+        String updateUseYn = (savedEntity.getUseYn().equals("Y")) ? "N" : "Y";
+
+        String updatePayload = new SltrLcBanWordUpdateRequestDto().getSampleUpdateUseYnPayload(objId, updateUseYn);
+        log.info(updatePayload);
+
+        String updateUrl = ip + port + URI.updateUseYn.getVal();
+        HttpEntity<String> updateRequest = new HttpEntity<>(updatePayload, httpHeaders);
+        ResponseEntity<String> updateResponseEntity = testRestTemplate.postForEntity(updateUrl, updateRequest, String.class);
+        log.info(updateResponseEntity.getBody());
+
+        SltrLcBanWordDef updatedEntity = this.service.getBanWordByObjId(updateResponseEntity.getBody());
+
+
+        assertThat(updateResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(updatedEntity.getUseYn().toString()).isEqualTo(updatedEntity.getUseYn().toString());
 
     }
     

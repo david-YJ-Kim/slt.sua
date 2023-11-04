@@ -1,8 +1,10 @@
 package com.tsh.slt.agent.rest.banWord;
 
+import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
-import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateRequestDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
@@ -25,9 +27,21 @@ public class BanWordController {
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
-    public String postBanWord(@RequestBody BanWordSaveRequestDto requestDto){
+    public String postBanWord(@RequestBody SltrLcBanWordSaveRequestDto requestDto){
         log.info(requestDto.toString());
         return banWordService.saveBanWord(requestDto);
+    }
+
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @RequestMapping(value = "/updateUseYn", method = RequestMethod.POST)
+    @Operation(description = "TBD", summary = "TBD")
+    public String updateUseYnByObjId(@RequestBody SltrLcBanWordUpdateRequestDto vo){
+        log.info(vo.toString());
+        this.banWordService.updateUseYnByObjId(vo);
+        SltrLcBanWordDef sltrLcBanWordDef = this.banWordService.getBanWordByObjId(vo.getObjId());
+        log.info(sltrLcBanWordDef.toString());
+        return sltrLcBanWordDef.getUserObjId();
     }
 
     @ResponseStatus(value = HttpStatus.OK)

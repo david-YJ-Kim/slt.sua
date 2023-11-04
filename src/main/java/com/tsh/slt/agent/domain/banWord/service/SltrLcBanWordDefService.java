@@ -4,7 +4,8 @@ import com.tsh.slt.agent.domain.banWord.mapper.SltrLcBanWordDefMapper;
 import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
-import com.tsh.slt.agent.domain.banWord.vo.dto.BanWordSaveRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,9 +40,14 @@ public class SltrLcBanWordDefService {
 
     }
 
-    public String saveBanWord(BanWordSaveRequestDto requestDto){
+    public String saveBanWord(SltrLcBanWordSaveRequestDto requestDto){
 
         return banWordEntityRepository.save(requestDto.toEntity()).getObjId();
+    }
+
+    public void updateUseYnByObjId(SltrLcBanWordUpdateRequestDto requestDto){
+
+        banWordEntityRepository.updateUseYnByObjId(requestDto.getUseYn(), requestDto.getWordCateCode());
     }
 
     public void updateBanWord(BanWordDefVO vo){

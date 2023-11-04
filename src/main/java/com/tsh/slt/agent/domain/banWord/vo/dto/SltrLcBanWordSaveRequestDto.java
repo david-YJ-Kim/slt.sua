@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 
 @NoArgsConstructor
 @Getter
-public class BanWordSaveRequestDto implements CommonDto {
+public class SltrLcBanWordSaveRequestDto implements CommonDto {
 
     private String userObjId;
     private String bandWord;
@@ -27,7 +27,7 @@ public class BanWordSaveRequestDto implements CommonDto {
     private String updateUserId;
 
     @Builder
-    public BanWordSaveRequestDto(String userObjId, String bandWord, String langCode, String wordCateCode, String alterWord, String useYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    public SltrLcBanWordSaveRequestDto(String userObjId, String bandWord, String langCode, String wordCateCode, String alterWord, String useYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.userObjId = userObjId;
         this.bandWord = bandWord;
         this.langCode = langCode;
@@ -72,5 +72,25 @@ public class BanWordSaveRequestDto implements CommonDto {
                 ", updateDate=" + updateDate +
                 ", updateUserId='" + updateUserId + '\'' +
                 '}';
+    }
+
+    public String getSamplePayload(){
+        return "{\n" +
+                "  \"userObjId\": \"DavidKim\",\n" +
+                "  \"bandWord\": \"Ban-Word\",\n" +
+                "  \"langCode\": \"KR\",\n" +
+                "  \"wordCateCode\": \"BAN\",\n" +
+                "  \"alterWord\": \"\",\n" +
+                "  \"useYn\": \"Y\",\n" +
+                "  \"createDate\": \"2023-11-02\",\n" +
+                "  \"createUserId\": \"DavidKim\",\n" +
+                "  \"updateDate\": \"2023-11-02\",\n" +
+                "  \"updateUserId\": \"DavidKim\"\n" +
+                "}";
+    }
+
+    @Override
+    public String getSamplePayload(String objId) {
+        return null;
     }
 }
