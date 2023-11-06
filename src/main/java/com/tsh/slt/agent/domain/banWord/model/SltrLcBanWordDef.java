@@ -3,6 +3,7 @@ package com.tsh.slt.agent.domain.banWord.model;
 import com.tsh.slt.agent.util.code.LangCode;
 import com.tsh.slt.agent.util.code.UseYn;
 import com.tsh.slt.agent.util.code.WordCateCode;
+import com.tsh.slt.agent.util.common.model.CommonModel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,7 +15,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
 @Entity(name = "SLTR_LC_BAN_WORD_DEF")
-public class SltrLcBanWordDef {
+public class SltrLcBanWordDef implements CommonModel {
 
     @javax.persistence.Id
     @GenericGenerator(name = "SLTR_LC_BAN_WORD_DEF_SEQ_GENERATOR", strategy = "com.tsh.slt.agent.util.ObjIdGenerator")

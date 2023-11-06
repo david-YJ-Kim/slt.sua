@@ -13,4 +13,7 @@ public interface SltrLcBanWordDefRepository extends JpaRepository<SltrLcBanWordD
     @Modifying(clearAutomatically = true)
     @Query("UPDATE SLTR_LC_BAN_WORD_DEF word SET word.useYn = :useYn WHERE word.objId = :objId")
     void updateUseYnByObjId(@Param(value = "useYn") UseYn useYn, @Param(value = "objId") String objId);
+
+
+
 }
