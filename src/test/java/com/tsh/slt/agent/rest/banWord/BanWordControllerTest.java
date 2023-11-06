@@ -1,9 +1,11 @@
 package com.tsh.slt.agent.rest.banWord;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
-import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.After;
 import org.junit.Before;
@@ -90,7 +92,7 @@ public class BanWordControllerTest {
     }
 
     @Test
-    public void serviceUpdateUseYnTest(){
+    public void serviceUpdateUseYnTest() throws JsonProcessingException {
         
         // 샘플  Save
         String url = ip + port + URI.save.getVal();
@@ -106,10 +108,17 @@ public class BanWordControllerTest {
 
         // Update 테스트
 
-        String updateUseYn = (savedEntity.getUseYn().equals("Y")) ? "N" : "Y";
+        String updateUseYn = (savedEntity.getUseYn().toString().equals("Y")) ? "N" : "Y";
 
-        String updatePayload = new SltrLcBanWordUpdateRequestDto().getSampleUpdateUseYnPayload(objId, updateUseYn);
-        log.info(updatePayload);
+        SltrLcBanWordUpdateUseYnRequestDto sltrLcBanWordUpdateRequestDto = SltrLcBanWordUpdateUseYnRequestDto.builder()
+                .objId(objId)
+                .useYn(updateUseYn)
+                .build();
+
+        // Convert DTO into JSON
+        ObjectMapper objectMapper = new ObjectMapper();
+        String updatePayload = objectMapper.writeValueAsString(sltrLcBanWordUpdateRequestDto);
+        log.info("Update request paylod: {}", updatePayload);
 
         String updateUrl = ip + port + URI.updateUseYn.getVal();
         HttpEntity<String> updateRequest = new HttpEntity<>(updatePayload, httpHeaders);

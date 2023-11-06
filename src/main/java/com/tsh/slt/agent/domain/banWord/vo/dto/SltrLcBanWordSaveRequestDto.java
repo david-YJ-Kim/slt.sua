@@ -93,4 +93,6 @@ public class SltrLcBanWordSaveRequestDto implements CommonDto {
     public String getSamplePayload(String objId) {
         return null;
     }
+
+
 }

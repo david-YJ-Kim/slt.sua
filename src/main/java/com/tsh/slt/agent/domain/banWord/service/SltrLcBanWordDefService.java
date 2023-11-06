@@ -5,11 +5,12 @@ import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.BanWordDefVO;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
-import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateRequestDto;
+import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collections;
 import java.util.List;
@@ -45,9 +46,12 @@ public class SltrLcBanWordDefService {
         return banWordEntityRepository.save(requestDto.toEntity()).getObjId();
     }
 
-    public void updateUseYnByObjId(SltrLcBanWordUpdateRequestDto requestDto){
+    @Transactional
+    public String updateUseYnByObjId(SltrLcBanWordUpdateUseYnRequestDto requestDto){
 
-        banWordEntityRepository.updateUseYnByObjId(requestDto.getUseYn(), requestDto.getWordCateCode());
+        SltrLcBanWordDef entity = requestDto.toEntity();
+        banWordEntityRepository.updateUseYnByObjId(entity.getUseYn(), entity.getObjId());
+        return requestDto.getObjId();
     }
 
     public void updateBanWord(BanWordDefVO vo){
