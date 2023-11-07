@@ -5,7 +5,7 @@ import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
-import com.tsh.slt.agent.util.CommonDto;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
 import com.tsh.slt.agent.util.common.service.CommonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

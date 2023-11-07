@@ -3,7 +3,7 @@ package com.tsh.slt.agent.domain.banWord.vo.dto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
-import com.tsh.slt.agent.util.CommonDto;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
 import com.tsh.slt.agent.util.code.LangCode;
 import com.tsh.slt.agent.util.code.UseYn;
 import com.tsh.slt.agent.util.code.WordCateCode;

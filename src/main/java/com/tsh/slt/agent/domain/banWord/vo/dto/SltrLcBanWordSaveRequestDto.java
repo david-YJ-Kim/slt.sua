@@ -1,7 +1,7 @@
 package com.tsh.slt.agent.domain.banWord.vo.dto;
 
 import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
-import com.tsh.slt.agent.util.CommonDto;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
 import com.tsh.slt.agent.util.code.LangCode;
 import com.tsh.slt.agent.util.code.UseYn;
 import com.tsh.slt.agent.util.code.WordCateCode;

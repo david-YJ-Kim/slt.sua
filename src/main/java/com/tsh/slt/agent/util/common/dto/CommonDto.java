@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.util;
+package com.tsh.slt.agent.util.common.dto;
 
 public interface CommonDto {
 

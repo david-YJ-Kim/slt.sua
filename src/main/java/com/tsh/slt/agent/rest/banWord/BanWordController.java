@@ -1,13 +1,17 @@
 package com.tsh.slt.agent.rest.banWord;
 
+import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
+import com.tsh.slt.agent.util.common.controller.CommonController;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,10 +19,20 @@ import org.springframework.web.bind.annotation.*;
 @Tag(name = "Sellter Agent Banword Controller. TBL : SLTR_LC_BAN_WORD_DEF")
 @RestController
 @RequestMapping(value = "/banWord")
-public class BanWordController {
+public class BanWordController implements CommonController {
 
     @Autowired
     SltrLcBanWordDefService banWordService;
+
+    /**
+     * ########################################################################
+     * SAVE
+     * ########################################################################
+     */
+    @Override
+    public ResponseEntity<SltrLcBanWordDef> saveEntity(CommonDto saveRequestDto) {
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postBanWord", method = RequestMethod.POST)
@@ -26,10 +40,20 @@ public class BanWordController {
     public String postBanWord(@RequestBody SltrLcBanWordSaveRequestDto requestDto){
         log.info(requestDto.toString());
         return banWordService.saveEntity(requestDto).getObjId();
-//        return banWordService.saveBanWord(requestDto);
     }
 
 
+    /**
+     * ########################################################################
+     * GET
+     * ########################################################################
+     */
+
+    /**
+     * ########################################################################
+     * UPDATE
+     * ########################################################################
+     */
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/updateUseYn", method = RequestMethod.POST)
     @Operation(description = "TBD", summary = "TBD")
@@ -37,6 +61,15 @@ public class BanWordController {
         log.info(vo.toString());
         return this.banWordService.updateUseYnByObjId(vo);
     }
+
+
+
+    /**
+     * ########################################################################
+     * DELETE
+     * ########################################################################
+     */
+
 
 //    @ResponseStatus(value = HttpStatus.OK)
 //    @RequestMapping(value = "/putBanWord", method = RequestMethod.PUT)

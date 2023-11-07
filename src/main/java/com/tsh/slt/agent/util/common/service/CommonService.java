@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.util.common.service;
 
-import com.tsh.slt.agent.util.CommonDto;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
 
 import java.util.Optional;
 

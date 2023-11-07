@@ -134,7 +134,7 @@ public class BanWordControllerTest {
     }
     
     @Test
-    public void serviceDeleteTest(){
+    public void serviceDeleteKeyTest(){
         // 샘플  Save
         String url = ip + port + URI.save.getVal();
 
@@ -146,6 +146,9 @@ public class BanWordControllerTest {
         String objId = responseEntity.getBody();
         SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
         log.info(savedEntity.getObjId());
+
+        // Delete
+
     }
 
 
