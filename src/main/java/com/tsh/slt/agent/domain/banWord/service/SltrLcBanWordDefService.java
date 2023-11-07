@@ -5,7 +5,7 @@ import com.tsh.slt.agent.domain.banWord.model.SltrLcBanWordDef;
 import com.tsh.slt.agent.domain.banWord.repository.SltrLcBanWordDefRepository;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
-import com.tsh.slt.agent.util.common.model.CommonModel;
+import com.tsh.slt.agent.util.CommonDto;
 import com.tsh.slt.agent.util.common.service.CommonService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -18,7 +18,7 @@ import java.util.Optional;
 @Slf4j
 @RequiredArgsConstructor
 @Service
-public class SltrLcBanWordDefService implements CommonService {
+public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> {
     private final SltrLcBanWordDefRepository banWordEntityRepository;
 
     @Autowired
@@ -35,8 +35,8 @@ public class SltrLcBanWordDefService implements CommonService {
 //    }
 
     @Override
-    public void deleteEntities(Iterable<CommonModel> deleteIterator) {
-        this.banWordEntityRepository.deleteAll((Iterable<? extends SltrLcBanWordDef>) deleteIterator);
+    public void deleteEntities(Iterable<SltrLcBanWordDef> deleteIterator) {
+        this.banWordEntityRepository.deleteAll(deleteIterator);
 
     }
 
@@ -45,7 +45,7 @@ public class SltrLcBanWordDefService implements CommonService {
 //    }
 
     @Override
-    public void deleteEntitiesInBatch(Iterable<Object> deleteIterator) {
+    public void deleteEntitiesInBatch(Iterable<SltrLcBanWordDef> deleteIterator) {
 
     }
 
@@ -59,17 +59,21 @@ public class SltrLcBanWordDefService implements CommonService {
     }
 
     @Override
-    public Optional<Object> getEntityByObjId(String objId) {
+    public Optional<SltrLcBanWordDef> getEntityByObjId(String objId) {
         return Optional.empty();
     }
 
     @Override
-    public Object saveEntity(Object saveRequestDto) {
+    public SltrLcBanWordDef saveEntity(CommonDto saveRequestDto) {
+        SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) saveRequestDto;
+
         return null;
     }
 
     @Override
-    public Object updateEntity(Object updateRequestDto) {
+    public SltrLcBanWordDef updateEntity(CommonDto updateRequestDto) {
+        SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) updateRequestDto;
+
         return null;
     }
 

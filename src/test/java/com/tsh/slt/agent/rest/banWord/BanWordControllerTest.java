@@ -82,7 +82,7 @@ public class BanWordControllerTest {
         String objId = responseEntity.getBody();
         log.info(objId);
 
-        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId);
+        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
         log.info(savedEntity.getObjId());
 
 
@@ -103,7 +103,7 @@ public class BanWordControllerTest {
         ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
 
         String objId = responseEntity.getBody();
-        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId);
+        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
         log.info(savedEntity.getObjId());
 
         // Update 테스트
@@ -125,7 +125,7 @@ public class BanWordControllerTest {
         ResponseEntity<String> updateResponseEntity = testRestTemplate.postForEntity(updateUrl, updateRequest, String.class);
         log.info(updateResponseEntity.getBody());
 
-        SltrLcBanWordDef updatedEntity = this.service.getBanWordByObjId(updateResponseEntity.getBody());
+        SltrLcBanWordDef updatedEntity = this.service.getBanWordByObjId(updateResponseEntity.getBody()).get();
 
 
         assertThat(updateResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
@@ -134,10 +134,19 @@ public class BanWordControllerTest {
     }
     
     @Test
-    public void serviceUpdateTest(){}
-    
-    @Test
-    public void serviceDeleteTest(){}
+    public void serviceDeleteTest(){
+        // 샘플  Save
+        String url = ip + port + URI.save.getVal();
+
+        String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
+
+        HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
+        ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
+
+        String objId = responseEntity.getBody();
+        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
+        log.info(savedEntity.getObjId());
+    }
 
 
     

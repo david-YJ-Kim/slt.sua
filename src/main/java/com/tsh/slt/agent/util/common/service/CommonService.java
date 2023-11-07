@@ -1,22 +1,22 @@
 package com.tsh.slt.agent.util.common.service;
 
-import com.tsh.slt.agent.util.common.model.CommonModel;
+import com.tsh.slt.agent.util.CommonDto;
 
 import java.util.Optional;
 
-public interface CommonService {
+public interface CommonService<T> {
 
-    void deleteEntities(Iterable<CommonModel> deleteIterator);
+    public void deleteEntities(Iterable<T> deleteIterator);
 
-    void deleteEntitiesInBatch(Iterable<Object> deleteIterator);
+    void deleteEntitiesInBatch(Iterable<T> deleteIterator);
 
     void deleteEntitiesByObjId(String objId);
 
     void deleteAllEntities();
 
-    Optional<Object> getEntityByObjId(String objId);
+    Optional<T> getEntityByObjId(String objId);
 
-    Object saveEntity(Object saveRequestDto);
+    T saveEntity(CommonDto saveRequestDto);
 
-    Object updateEntity(Object updateRequestDto);
+    T updateEntity(CommonDto updateRequestDto);
 }
