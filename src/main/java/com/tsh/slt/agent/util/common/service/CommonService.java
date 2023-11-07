@@ -6,6 +6,11 @@ import java.util.Optional;
 
 public interface CommonService<T> {
 
+
+    T saveEntity(CommonDto saveRequestDto);
+
+    Optional<T> getEntityByObjId(String objId);
+
     public void deleteEntities(Iterable<T> deleteIterator);
 
     void deleteEntitiesInBatch(Iterable<T> deleteIterator);
@@ -14,9 +19,4 @@ public interface CommonService<T> {
 
     void deleteAllEntities();
 
-    Optional<T> getEntityByObjId(String objId);
-
-    T saveEntity(CommonDto saveRequestDto);
-
-    T updateEntity(CommonDto updateRequestDto);
 }

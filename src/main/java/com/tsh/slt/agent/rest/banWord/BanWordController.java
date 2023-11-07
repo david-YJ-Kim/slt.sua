@@ -25,7 +25,8 @@ public class BanWordController {
     @Operation(description = "TBD", summary = "TBD")
     public String postBanWord(@RequestBody SltrLcBanWordSaveRequestDto requestDto){
         log.info(requestDto.toString());
-        return banWordService.saveBanWord(requestDto);
+        return banWordService.saveEntity(requestDto).getObjId();
+//        return banWordService.saveBanWord(requestDto);
     }
 
 

@@ -24,75 +24,42 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
     @Autowired
     SltrLcBanWordDefMapper banWordMapper;
 
-    // Delete
-
-//
-//    public void deleteEntitiesInBatch(Iterable<SltrLcBanWordDef> deleteIterator){
-//        this.banWordEntityRepository.deleteAllInBatch(deleteIterator);
-//    }
-//    public void deleteEntityByObjId(String objectId){
-//        this.banWordEntityRepository.deleteById(objectId);
-//    }
+    /**
+     * ########################################################################
+     * SAVE
+     * ########################################################################
+     */
 
     @Override
-    public void deleteEntities(Iterable<SltrLcBanWordDef> deleteIterator) {
-        this.banWordEntityRepository.deleteAll(deleteIterator);
+    public SltrLcBanWordDef saveEntity(CommonDto saveRequestDto) {
+        SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) saveRequestDto;
+
+        return banWordEntityRepository.save(dto.toEntity());
 
     }
 
-    //    public void deleteEntities(Iterable<SltrLcBanWordDef> deleteIterator){
-//        this.banWordEntityRepository.deleteAll(deleteIterator);
-//    }
 
-    @Override
-    public void deleteEntitiesInBatch(Iterable<SltrLcBanWordDef> deleteIterator) {
-
-    }
-
-    @Override
-    public void deleteEntitiesByObjId(String objId) {
-
-    }
-
-    public void deleteAllEntities(){
-        this.banWordEntityRepository.deleteAll();
-    }
+    /**
+     * ########################################################################
+     * GET
+     * ########################################################################
+     */
 
     @Override
     public Optional<SltrLcBanWordDef> getEntityByObjId(String objId) {
         return Optional.empty();
     }
 
-    @Override
-    public SltrLcBanWordDef saveEntity(CommonDto saveRequestDto) {
-        SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) saveRequestDto;
-
-        return null;
-    }
-
-    @Override
-    public SltrLcBanWordDef updateEntity(CommonDto updateRequestDto) {
-        SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) updateRequestDto;
-
-        return null;
-    }
-
-
-    // Default Get
     public Optional<SltrLcBanWordDef> getBanWordByObjId(String objectId){
 
         return this.banWordEntityRepository.findById(objectId);
     }
 
-
-    // Save
-    public String saveBanWord(SltrLcBanWordSaveRequestDto requestDto){
-
-        return banWordEntityRepository.save(requestDto.toEntity()).getObjId();
-    }
-
-
-    // Update
+    /**
+     * ########################################################################
+     * UPDATE
+     * ########################################################################
+     */
     @Transactional
     public String updateUseYnByObjId(SltrLcBanWordUpdateUseYnRequestDto requestDto){
 
@@ -100,5 +67,38 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
         banWordEntityRepository.updateUseYnByObjId(entity.getUseYn(), entity.getObjId());
         return requestDto.getObjId();
     }
+
+
+    /**
+     * ########################################################################
+     * DELETE
+     * ########################################################################
+     */
+
+
+    @Override
+    public void deleteEntities(Iterable<SltrLcBanWordDef> deleteIterator) {
+        this.banWordEntityRepository.deleteAll(deleteIterator);
+
+    }
+
+    @Override
+    public void deleteEntitiesInBatch(Iterable<SltrLcBanWordDef> deleteIterator) {
+        this.banWordEntityRepository.deleteAllInBatch(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesByObjId(String objId) {
+        this.banWordEntityRepository.deleteById(objId);
+    }
+
+    public void deleteAllEntities(){
+        this.banWordEntityRepository.deleteAll();
+    }
+
+
+
+
+
 
 }
