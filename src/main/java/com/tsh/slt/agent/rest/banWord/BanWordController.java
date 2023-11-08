@@ -5,8 +5,6 @@ import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordResponseDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
-import com.tsh.slt.agent.util.common.controller.CommonController;
-import com.tsh.slt.agent.util.common.dto.CommonDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +20,7 @@ import java.util.Optional;
 @Tag(name = "Sellter Agent Banword Controller. TBL : SLTR_LC_BAN_WORD_DEF")
 @RestController
 @RequestMapping(value = "/banWord")
-public class BanWordController implements CommonController {
+public class BanWordController {
 
     @Autowired
     SltrLcBanWordDefService banWordService;
@@ -34,11 +32,11 @@ public class BanWordController implements CommonController {
      * SAVE
      * ########################################################################
      */
-    @Override
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/saveBanWord", method = RequestMethod.POST)
-    public ResponseEntity<SltrLcBanWordResponseDto> saveEntity(CommonDto saveRequestDto) {
+    public ResponseEntity<SltrLcBanWordResponseDto> saveEntity(@RequestBody SltrLcBanWordSaveRequestDto saveRequestDto) {
         log.info(saveRequestDto.toString());
+
         SltrLcBanWordResponseDto responseDto = new SltrLcBanWordResponseDto(this.banWordService.saveEntity(saveRequestDto));
         log.info(responseDto.toString());
         return new ResponseEntity<>(responseDto, HttpStatus.OK);
@@ -54,17 +52,18 @@ public class BanWordController implements CommonController {
     }
 
 
+
     /**
      * ########################################################################
      * GET
      * ########################################################################
      */
 
-    @Override
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/selectBanWordByObjId", method = RequestMethod.GET)
     public ResponseEntity<SltrLcBanWordResponseDto> selectEntityByObjId(@RequestParam("objId") String objId) {
 
+        log.info(objId);
         Optional<SltrLcBanWordDef> entity = this.banWordService.getBanWordByObjId(objId);
         if(!entity.isEmpty()){
             return new ResponseEntity<>(new SltrLcBanWordResponseDto(entity.get()), HttpStatus.OK);
@@ -94,7 +93,6 @@ public class BanWordController implements CommonController {
      * ########################################################################
      */
 
-    @Override
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/deleteBanWordByObjId", method = RequestMethod.DELETE)
     public ResponseEntity deleteEntityByObjId(@RequestParam("objId") String objId) {

@@ -7,6 +7,8 @@ import com.tsh.slt.agent.domain.banWord.service.SltrLcBanWordDefService;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordSaveRequestDto;
 import com.tsh.slt.agent.domain.banWord.vo.dto.SltrLcBanWordUpdateUseYnRequestDto;
 import lombok.extern.slf4j.Slf4j;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,13 +21,19 @@ import org.springframework.http.*;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
+enum CODE{
+    objId;
+}
 enum URI{
-    save("/banWord/postBanWord"),
+    save("/banWord/saveBanWord"),
     update("/banWord/putBanWord"),
+
+    get("/banWord/selectBanWordByObjId"),
 
     updateUseYn("/banWord/updateUseYn"),
 
-    delete("/banWord/deleteBanWord");
+    delete("/banWord/deleteBanWordByObjId");
 
     String val;
     URI(String val){
@@ -70,39 +78,43 @@ public class BanWordControllerTest {
 
 
     @Test
-    public void serviceSaveTest(){
+    public void serviceSaveTest() throws JSONException {
 
-        String url = ip + port + URI.save.getVal();
 
-        String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
+        // SAVE Request
 
-        HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
-        ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
-
-        String objId = responseEntity.getBody();
+        ResponseEntity<String> responseEntity = this.saveBanWordAndGetObjId();
+        JSONObject dtoObj = new JSONObject(this.saveBanWordAndGetObjId().getBody());
+        String objId = dtoObj.getString(CODE.objId.name());
         log.info(objId);
 
-        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
-        log.info(savedEntity.getObjId());
+
+        // GET Request
+        String url = ip + port + URI.get.getVal() + "?" + CODE.objId.name() + "=" + objId;
+
+        ResponseEntity<String> responseGetEntity = testRestTemplate.getForEntity(url, String.class);
+        log.info(responseGetEntity.getBody());
+        String getObjId = new JSONObject(responseGetEntity.getBody()).getString(CODE.objId.name());
 
 
+        // COMPARE
         assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isEqualTo(savedEntity.getObjId());
+        assertThat(responseGetEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(objId).isEqualTo(getObjId);
 
     }
 
     @Test
-    public void serviceUpdateUseYnTest() throws JsonProcessingException {
-        
-        // 샘플  Save
-        String url = ip + port + URI.save.getVal();
+    public void serviceUpdateUseYnTest() throws JsonProcessingException, JSONException {
 
-        String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
 
-        HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
-        ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
+        // SAVE Request
+        ResponseEntity<String> responseEntity = this.saveBanWordAndGetObjId();
+        JSONObject dtoObj = new JSONObject(this.saveBanWordAndGetObjId().getBody());
+        String objId = dtoObj.getString(CODE.objId.name());
+        log.info(objId);
 
-        String objId = responseEntity.getBody();
+        // GET
         SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
         log.info(savedEntity.getObjId());
 
@@ -132,10 +144,37 @@ public class BanWordControllerTest {
         assertThat(updatedEntity.getUseYn().toString()).isEqualTo(updatedEntity.getUseYn().toString());
 
     }
-    
+
     @Test
-    public void serviceDeleteKeyTest(){
-        // 샘플  Save
+    public void serviceDeleteKeyTest() throws JSONException {
+        // SAVE Request
+        ResponseEntity<String> responseEntity = this.saveBanWordAndGetObjId();
+        JSONObject dtoObj = new JSONObject(this.saveBanWordAndGetObjId().getBody());
+        String objId = dtoObj.getString(CODE.objId.name());
+        log.info(objId);
+
+        // Delete
+
+        String deleteUrl = ip + port + URI.delete.getVal() + "?" + CODE.objId.name() + "=" + objId;
+        HttpEntity<String> request = new HttpEntity<>(httpHeaders);
+        ResponseEntity<String> updateResponseEntity = testRestTemplate.exchange(
+                deleteUrl, // Include the objId as a query parameter
+                org.springframework.http.HttpMethod.DELETE,
+                request,
+                String.class
+        );
+
+        // GET
+        boolean isNull = this.service.getBanWordByObjId(objId).isEmpty();
+
+
+        assertThat(updateResponseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
+        assertThat(isNull).isEqualTo(true);
+
+    }
+
+    private ResponseEntity<String> saveBanWordAndGetObjId() throws JSONException {
+        // SAVE Request
         String url = ip + port + URI.save.getVal();
 
         String payload = new SltrLcBanWordSaveRequestDto().getSamplePayload();
@@ -143,12 +182,7 @@ public class BanWordControllerTest {
         HttpEntity<String> request = new HttpEntity<>(payload, httpHeaders);
         ResponseEntity<String> responseEntity = testRestTemplate.postForEntity(url, request, String.class);
 
-        String objId = responseEntity.getBody();
-        SltrLcBanWordDef savedEntity = this.service.getBanWordByObjId(objId).get();
-        log.info(savedEntity.getObjId());
-
-        // Delete
-
+        return responseEntity;
     }
 
 
