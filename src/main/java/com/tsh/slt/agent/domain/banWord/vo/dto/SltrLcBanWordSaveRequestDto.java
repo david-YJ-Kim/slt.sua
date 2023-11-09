@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 
 @NoArgsConstructor
 @Getter
-public class SltrLcBanWordSaveRequestDto implements CommonDto {
+public class SltrLcBanWordSaveRequestDto implements CommonDto<SltrLcBanWordDef> {
 
     private String userObjId;
     private String bandWord;

@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 @EqualsAndHashCode(callSuper = false)
 @JsonInclude(value = JsonInclude.Include.ALWAYS)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class SltrLcBanWordUpdateRequestDto implements CommonDto {
+public class SltrLcBanWordUpdateRequestDto implements CommonDto<SltrLcBanWordDef> {
 
     private String objId;
     private String userObjId;

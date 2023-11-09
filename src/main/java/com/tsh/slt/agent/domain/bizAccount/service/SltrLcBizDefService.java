@@ -1,15 +1,29 @@
 package com.tsh.slt.agent.domain.bizAccount.service;
 
 import com.tsh.slt.agent.domain.bizAccount.mapper.SltrLcBizDefMapper;
+import com.tsh.slt.agent.domain.bizAccount.model.SltrLcBizDef;
+import com.tsh.slt.agent.domain.bizAccount.repository.SltrLcBizDefRepository;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO;
 import com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO;
+import com.tsh.slt.agent.domain.bizAccount.vo.dto.SltrLcBizDefSaveRequestDto;
 import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.util.code.TableKeyCode;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
+import com.tsh.slt.agent.util.common.service.CommonService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
+@Slf4j
+@RequiredArgsConstructor
 @Service
-public class SltrLcBizDefService {
+public class SltrLcBizDefService implements CommonService<SltrLcBizDef> {
+    private final SltrLcBizDefRepository repository;
+
+
     @Autowired
     SltrLcBizDefMapper bizAccountMapper;
 
@@ -76,5 +90,36 @@ public class SltrLcBizDefService {
 
     public SltrLcBizMktRelVO getSltrBizMktRelById(String id){
         return bizAccountMapper.getSltrBizMktRelById(id);
+    }
+
+    @Override
+    public SltrLcBizDef saveEntity(CommonDto saveRequestDto) {
+        SltrLcBizDefSaveRequestDto dto = (SltrLcBizDefSaveRequestDto) saveRequestDto;
+        return this.repository.save(dto.toEntity());
+    }
+
+    @Override
+    public Optional<SltrLcBizDef> getEntityByObjId(String objId) {
+        return this.repository.findById(objId);
+    }
+
+    @Override
+    public void deleteEntities(Iterable<SltrLcBizDef> deleteIterator) {
+        this.repository.deleteAll(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesInBatch(Iterable<SltrLcBizDef> deleteIterator) {
+        this.repository.deleteAllInBatch(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesByObjId(String objId) {
+        this.repository.deleteById(objId);
+    }
+
+    @Override
+    public void deleteAllEntities() {
+        this.repository.deleteAll();
     }
 }

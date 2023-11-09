@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.rest.demo;
 
-import com.tsh.slt.agent.domain.demo.service.DemoService;
+import com.tsh.slt.agent.domain.demo.service.SltrLcDemoService;
 import com.tsh.slt.agent.domain.demo.vo.MyAllApiListVo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -21,7 +21,7 @@ import java.util.List;
 public class DemoController {
 
     @Autowired
-    DemoService demoService;
+    SltrLcDemoService demoService;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/getMyAllApiList", method = RequestMethod.GET)

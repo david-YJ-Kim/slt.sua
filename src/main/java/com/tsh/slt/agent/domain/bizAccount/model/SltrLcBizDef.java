@@ -1,6 +1,7 @@
 package com.tsh.slt.agent.domain.bizAccount.model;
 
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -65,6 +66,7 @@ public class SltrLcBizDef {
     private String updateUserId;
 
 
+    @Builder
     public SltrLcBizDef(String objId, String userObjId, String bizRegNum, String bizName, String repUseName, String bizAddr, Timestamp bizStartDate, Integer dispSeq, UseYn useYn, Timestamp lastValidDate, Integer baseMgnRate, Integer baseMgnValue, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;

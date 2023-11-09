@@ -1,8 +1,8 @@
 package com.tsh.slt.agent.util.common.dto;
 
-public interface CommonDto {
+public interface CommonDto<T> {
 
-    public Object toEntity();
+    public T toEntity();
     public String getSamplePayload();
 
     String getSamplePayload(String objId);

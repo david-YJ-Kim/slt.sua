@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 
 @NoArgsConstructor
 @Getter
-public class SltrLcBanWordUpdateUseYnRequestDto implements CommonDto {
+public class SltrLcBanWordUpdateUseYnRequestDto implements CommonDto<SltrLcBanWordDef> {
 
     private String objId;
     private String useYn;

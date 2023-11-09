@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.sql.Timestamp;
 
 @Data
-public class SltrLcBanWordResponseDto implements CommonDto {
+public class SltrLcBanWordResponseDto implements CommonDto<SltrLcBanWordDef> {
 
     private String objId;
     private String userObjId;
@@ -40,7 +40,7 @@ public class SltrLcBanWordResponseDto implements CommonDto {
         this.updateUserId = entity.getUpdateUserId();
     }
     @Override
-    public Object toEntity() {
+    public SltrLcBanWordDef toEntity() {
         return null;
     }
 
