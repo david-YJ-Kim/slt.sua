@@ -3,6 +3,7 @@ package com.tsh.slt.agent.domain.product.model;
 import com.tsh.slt.agent.util.code.ProdImgType;
 import com.tsh.slt.agent.util.code.ProdImgValueType;
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -34,7 +35,7 @@ public class SltrLcProdDtlImg {
     private ProdImgType prodImgType;
 
     @Column(name = "PROD_IMG_SEQ")
-    private String prodImgSeq;
+    private Integer prodImgSeq;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "PROD_IMG_VALUE_TYPE")
@@ -66,7 +67,8 @@ public class SltrLcProdDtlImg {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
-    public SltrLcProdDtlImg(String objId, String userObjId, String prodObjId, String prodDtlObjId, ProdImgType prodImgType, String prodImgSeq, ProdImgValueType prodImgValueType, UseYn defaultYn, String prodImgFilePath, Integer prodImgFileSize, Integer prodImgVersion, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    @Builder
+    public SltrLcProdDtlImg(String objId, String userObjId, String prodObjId, String prodDtlObjId, ProdImgType prodImgType, Integer prodImgSeq, ProdImgValueType prodImgValueType, UseYn defaultYn, String prodImgFilePath, Integer prodImgFileSize, Integer prodImgVersion, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;
         this.prodObjId = prodObjId;

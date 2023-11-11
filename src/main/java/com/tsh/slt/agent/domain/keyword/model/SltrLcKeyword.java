@@ -1,6 +1,7 @@
 package com.tsh.slt.agent.domain.keyword.model;
 
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -46,10 +47,10 @@ public class SltrLcKeyword {
     private UseYn autoSearchYn;
 
     @Column(name = "COLLECT_START_PAGE")
-    private String collectStartPage;
+    private Integer collectStartPage;
 
     @Column(name = "COLLECT_END_PAGE")
-    private String collectEndPage;
+    private Integer collectEndPage;
 
     @Column(name = "BASE_MGN_RATE")
     private Integer baseMgnRate;
@@ -90,9 +91,6 @@ public class SltrLcKeyword {
     @Column(name = "CORE_KEYWORD_YN")
     private UseYn coreKeywordYn;
 
-
-
-    // Default
     @Column(name = "CREATE_DATE")
     private Timestamp createDate;
 
@@ -105,7 +103,8 @@ public class SltrLcKeyword {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
-    public SltrLcKeyword(String objId, String userObjId, String prodKeyword, String srcMktId, String keywordUrl, String searchKeyword, String subjectKeyword, String hashTag, UseYn autoSearchYn, String collectStartPage, String collectEndPage, Integer baseMgnRate, Integer baseMgnValue, Timestamp registerDate, UseYn collectProdYn, Timestamp lastCollectDate, Integer prodQty, Integer collectQty, String cpCategory, String ssCategory, String stCategory, String cmCategory, String intpkCategory, UseYn coreKeywordYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    @Builder
+    public SltrLcKeyword(String objId, String userObjId, String prodKeyword, String srcMktId, String keywordUrl, String searchKeyword, String subjectKeyword, String hashTag, UseYn autoSearchYn, Integer collectStartPage, Integer collectEndPage, Integer baseMgnRate, Integer baseMgnValue, Timestamp registerDate, UseYn collectProdYn, Timestamp lastCollectDate, Integer prodQty, Integer collectQty, String cpCategory, String ssCategory, String stCategory, String cmCategory, String intpkCategory, UseYn coreKeywordYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;
         this.prodKeyword = prodKeyword;

@@ -1,7 +1,7 @@
 package com.tsh.slt.agent.rest.user;
 
-import com.tsh.slt.agent.domain.user.dto.UserMasterDataDTO;
-import com.tsh.slt.agent.domain.user.service.UserService;
+import com.tsh.slt.agent.domain.user.vo.dto.UserMasterDataDTO;
+import com.tsh.slt.agent.domain.user.service.SltrLcUserService;
 import com.tsh.slt.agent.domain.user.vo.SltrLcImgDtlVO;
 import com.tsh.slt.agent.domain.user.vo.SltrLcUserVO;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
 
     @Autowired
-    UserService service;
+    SltrLcUserService service;
 
     @ResponseStatus(value = HttpStatus.OK)
     @RequestMapping(value = "/postSltrLcImgDtl", method = RequestMethod.POST)

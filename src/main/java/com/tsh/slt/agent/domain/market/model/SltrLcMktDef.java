@@ -1,13 +1,13 @@
 package com.tsh.slt.agent.domain.market.model;
 
 import com.tsh.slt.agent.util.code.MktCode;
+import com.tsh.slt.agent.util.code.MktTyp;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import java.sql.Timestamp;
 @NoArgsConstructor
 @Getter
@@ -20,14 +20,16 @@ public class SltrLcMktDef {
     @GeneratedValue(generator = "SLTR_LC_MKT_DEF_SEQ_GENERATOR")
     private String objId;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "MKT_CODE")
     private MktCode mktCode;
 
     @Column(name = "MKT_NAME")
     private String mktName;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "MKT_TYP")
-    private String mktTyp;
+    private MktTyp mktTyp;
 
 
     // Default
@@ -43,7 +45,8 @@ public class SltrLcMktDef {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
-    public SltrLcMktDef(String objId, MktCode mktCode, String mktName, String mktTyp, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    @Builder
+    public SltrLcMktDef(String objId, MktCode mktCode, String mktName, MktTyp mktTyp, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.mktCode = mktCode;
         this.mktName = mktName;

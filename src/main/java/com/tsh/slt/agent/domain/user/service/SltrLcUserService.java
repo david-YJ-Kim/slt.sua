@@ -1,17 +1,60 @@
 package com.tsh.slt.agent.domain.user.service;
 
 import com.tsh.slt.agent.domain.user.mapper.UserMapper;
+import com.tsh.slt.agent.domain.user.model.SltrLcUser;
+import com.tsh.slt.agent.domain.user.repository.SltrLcUserRepository;
 import com.tsh.slt.agent.domain.user.vo.SltrLcImgDtlVO;
 import com.tsh.slt.agent.domain.user.vo.SltrLcUserVO;
+import com.tsh.slt.agent.domain.user.vo.dto.SltrLcUserSaveRequestDto;
 import com.tsh.slt.agent.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
+import com.tsh.slt.agent.util.common.service.CommonService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class UserService {
+@RequiredArgsConstructor
+@Slf4j
+public class SltrLcUserService implements CommonService<SltrLcUser> {
+    private final SltrLcUserRepository repository;
 
     @Autowired
     UserMapper mapper;
+
+    @Override
+    public SltrLcUser saveEntity(CommonDto saveRequestDto) {
+        SltrLcUserSaveRequestDto dto = (SltrLcUserSaveRequestDto) saveRequestDto;
+        return this.repository.save(dto.toEntity());
+    }
+
+    @Override
+    public Optional<SltrLcUser> getEntityByObjId(String objId) {
+        return this.repository.findById(objId);
+    }
+
+    @Override
+    public void deleteEntities(Iterable<SltrLcUser> deleteIterator) {
+        this.repository.deleteAll(deleteIterator);
+
+    }
+
+    @Override
+    public void deleteEntitiesInBatch(Iterable<SltrLcUser> deleteIterator) {
+        this.repository.deleteAllInBatch(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesByObjId(String objId) {
+        this.repository.deleteById(objId);
+    }
+
+    public void deleteAllEntities(){
+        this.repository.deleteAll();
+    }
 
     public SltrLcUserVO selectSltrLcUser(String userId) {
         return mapper.selectSltrLcUser(userId);

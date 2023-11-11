@@ -1,6 +1,7 @@
 package com.tsh.slt.agent.domain.user.model;
 
 import com.tsh.slt.agent.util.code.ImgType;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -29,7 +30,7 @@ public class SltrLcImgDtl {
     private String imgFilePath;
 
     @Column(name = "IMG_SEQ")
-    private String imgSeq;
+    private Integer imgSeq;
 
     @Column(name = "IMG_FILE_NAME")
     private String imgFileName;
@@ -51,7 +52,8 @@ public class SltrLcImgDtl {
     private String updateUserId;
 
 
-    public SltrLcImgDtl(String objId, String userId, ImgType imgType, String imgFilePath, String imgSeq, String imgFileName, Integer imgFileSize, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
+    @Builder
+    public SltrLcImgDtl(String objId, String userId, ImgType imgType, String imgFilePath, Integer imgSeq, String imgFileName, Integer imgFileSize, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userId = userId;
         this.imgType = imgType;

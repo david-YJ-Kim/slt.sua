@@ -2,6 +2,7 @@ package com.tsh.slt.agent.domain.user.model;
 
 import com.tsh.slt.agent.util.code.ShipFeeType;
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -107,6 +108,7 @@ public class SltrLcUser {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
+    @Builder
     public SltrLcUser(String objId, String userId, String userName, String activeLicenseId, Timestamp activeDate, Integer usdExchangeRate, Integer cnyExchangeRate, Integer baseMgnRate, Integer baseMgnValue, Integer customExcdMgnRate, Integer customExcdMgnValue, ShipFeeType shipFeeType, Integer baseShipFee, Integer returnShipFee, Integer exchangeShipFee, String makerName, String brandName, UseYn onlyForAdultYn, UseYn useThumbOptImgYn, UseYn autoHashTagYn, UseYn useTopImgYn, UseYn useBotImgYn, UseYn useBaseBotImgYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userId = userId;

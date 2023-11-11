@@ -1,15 +1,26 @@
 package com.tsh.slt.agent.domain.keyword.service;
 
-import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.domain.keyword.mapper.SltrLcKeywordMapper;
+import com.tsh.slt.agent.domain.keyword.model.SltrLcKeyword;
+import com.tsh.slt.agent.domain.keyword.repository.SltrLcKeywordRepository;
 import com.tsh.slt.agent.domain.keyword.vo.SltrLcKeywordVO;
+import com.tsh.slt.agent.domain.keyword.vo.dto.SltrLcKeywordSaveRequestDto;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
+import com.tsh.slt.agent.util.common.service.CommonService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
-public class SltrLcKeywordService {
+import java.util.Optional;
 
-//    ScrapServiceManager scrapServiceManager = ScrapServiceManager.getInstance();
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class SltrLcKeywordService implements CommonService<SltrLcKeyword> {
+    private final SltrLcKeywordRepository repository;
+
 
     @Autowired
     SltrLcKeywordMapper keywordMapper;
@@ -42,5 +53,36 @@ public class SltrLcKeywordService {
     public SltrLcKeywordVO getSltrLcKeywordById(String id){
         System.out.println(id);
         return keywordMapper.getSltrLcKeywordById(id);
+    }
+
+    @Override
+    public SltrLcKeyword saveEntity(CommonDto saveRequestDto) {
+        SltrLcKeywordSaveRequestDto dto = (SltrLcKeywordSaveRequestDto) saveRequestDto;
+        return this.repository.save(dto.toEntity());
+    }
+
+    @Override
+    public Optional<SltrLcKeyword> getEntityByObjId(String objId) {
+        return this.repository.findById(objId);
+    }
+
+    @Override
+    public void deleteEntities(Iterable<SltrLcKeyword> deleteIterator) {
+        this.repository.deleteAll(deleteIterator);
+
+    }
+
+    @Override
+    public void deleteEntitiesInBatch(Iterable<SltrLcKeyword> deleteIterator) {
+        this.repository.deleteAllInBatch(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesByObjId(String objId) {
+        this.repository.deleteById(objId);
+    }
+
+    public void deleteAllEntities(){
+        this.repository.deleteAll();
     }
 }

@@ -2,6 +2,7 @@ package com.tsh.slt.agent.domain.code.model;
 
 
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -51,6 +52,7 @@ public class SltrLcCodeDef {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
+    @Builder
     public SltrLcCodeDef(String objId, String codeClassId, String codeId, String korCodeName, String engCodeName, UseYn useYn, String description, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.codeClassId = codeClassId;

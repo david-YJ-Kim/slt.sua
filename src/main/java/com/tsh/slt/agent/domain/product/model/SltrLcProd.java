@@ -4,6 +4,7 @@ import com.tsh.slt.agent.util.code.DeliveryOpt;
 import com.tsh.slt.agent.util.code.PriceCurrency;
 import com.tsh.slt.agent.util.code.ProdStatus;
 import com.tsh.slt.agent.util.code.UseYn;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -71,6 +72,8 @@ public class SltrLcProd {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
+
+    @Builder
     public SltrLcProd(String objId, String prodId, String keywordObjId, String prodTitle, String prodContent, PriceCurrency priceCurrency, Integer prodPrice, DeliveryOpt deliveryOpt, UseYn deliveryYn, String srcMktUrl, ProdStatus prodStatus, UseYn coreProdYn, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.prodId = prodId;

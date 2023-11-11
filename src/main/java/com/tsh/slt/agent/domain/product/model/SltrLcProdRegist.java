@@ -2,6 +2,7 @@ package com.tsh.slt.agent.domain.product.model;
 
 import com.tsh.slt.agent.util.code.MktCode;
 import com.tsh.slt.agent.util.code.PriceCurrency;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -59,6 +60,7 @@ public class SltrLcProdRegist {
     @Column(name = "UPDATE_USER_ID")
     private String updateUserId;
 
+    @Builder
     public SltrLcProdRegist(String objId, String userObjId, String registProdId, String collectProdObjId, MktCode tgtMktCode, Integer registVersion, Integer registPrice, PriceCurrency priceCurrency, String tgtProdUrl, Timestamp createDate, String createUserId, Timestamp updateDate, String updateUserId) {
         this.objId = objId;
         this.userObjId = userObjId;

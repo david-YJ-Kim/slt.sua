@@ -19,7 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Service
 public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> {
-    private final SltrLcBanWordDefRepository banWordEntityRepository;
+    private final SltrLcBanWordDefRepository repository;
 
     @Autowired
     SltrLcBanWordDefMapper banWordMapper;
@@ -34,7 +34,7 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
     public SltrLcBanWordDef saveEntity(CommonDto saveRequestDto) {
         SltrLcBanWordSaveRequestDto dto =  (SltrLcBanWordSaveRequestDto) saveRequestDto;
 
-        return banWordEntityRepository.save(dto.toEntity());
+        return repository.save(dto.toEntity());
 
     }
 
@@ -52,7 +52,7 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
 
     public Optional<SltrLcBanWordDef> getBanWordByObjId(String objectId){
 
-        return this.banWordEntityRepository.findById(objectId);
+        return this.repository.findById(objectId);
     }
 
     /**
@@ -64,7 +64,7 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
     public String updateUseYnByObjId(SltrLcBanWordUpdateUseYnRequestDto requestDto){
 
         SltrLcBanWordDef entity = requestDto.toEntity();
-        banWordEntityRepository.updateUseYnByObjId(entity.getUseYn(), entity.getObjId());
+        repository.updateUseYnByObjId(entity.getUseYn(), entity.getObjId());
         return requestDto.getObjId();
     }
 
@@ -78,22 +78,22 @@ public class SltrLcBanWordDefService implements CommonService<SltrLcBanWordDef> 
 
     @Override
     public void deleteEntities(Iterable<SltrLcBanWordDef> deleteIterator) {
-        this.banWordEntityRepository.deleteAll(deleteIterator);
+        this.repository.deleteAll(deleteIterator);
 
     }
 
     @Override
     public void deleteEntitiesInBatch(Iterable<SltrLcBanWordDef> deleteIterator) {
-        this.banWordEntityRepository.deleteAllInBatch(deleteIterator);
+        this.repository.deleteAllInBatch(deleteIterator);
     }
 
     @Override
     public void deleteEntitiesByObjId(String objId) {
-        this.banWordEntityRepository.deleteById(objId);
+        this.repository.deleteById(objId);
     }
 
     public void deleteAllEntities(){
-        this.banWordEntityRepository.deleteAll();
+        this.repository.deleteAll();
     }
 
 

@@ -1,19 +1,62 @@
 package com.tsh.slt.agent.domain.product.service;
 
-import com.tsh.slt.agent.util.ParsingCommonUtil;
 import com.tsh.slt.agent.domain.product.mapper.SltrLcProdMapper;
+import com.tsh.slt.agent.domain.product.model.SltrLcProd;
+import com.tsh.slt.agent.domain.product.repository.SltrLcProdRepository;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlImgVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdDtlVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdRegistVO;
 import com.tsh.slt.agent.domain.product.vo.SltrLcProdVO;
+import com.tsh.slt.agent.domain.product.vo.dto.SltrLcProdSaveRequestDto;
+import com.tsh.slt.agent.util.ParsingCommonUtil;
+import com.tsh.slt.agent.util.common.dto.CommonDto;
+import com.tsh.slt.agent.util.common.service.CommonService;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class SltrLcProdService {
+@Slf4j
+@RequiredArgsConstructor
+public class SltrLcProdService implements CommonService<SltrLcProd> {
+    private final SltrLcProdRepository repository;
 
     @Autowired
     SltrLcProdMapper mapper;
+
+    @Override
+    public SltrLcProd saveEntity(CommonDto saveRequestDto) {
+        SltrLcProdSaveRequestDto dto = (SltrLcProdSaveRequestDto) saveRequestDto;
+        return this.repository.save(dto.toEntity());
+    }
+
+    @Override
+    public Optional<SltrLcProd> getEntityByObjId(String objId) {
+        return this.repository.findById(objId);
+    }
+
+    @Override
+    public void deleteEntities(Iterable<SltrLcProd> deleteIterator) {
+        this.repository.deleteAll(deleteIterator);
+
+    }
+
+    @Override
+    public void deleteEntitiesInBatch(Iterable<SltrLcProd> deleteIterator) {
+        this.repository.deleteAllInBatch(deleteIterator);
+    }
+
+    @Override
+    public void deleteEntitiesByObjId(String objId) {
+        this.repository.deleteById(objId);
+    }
+
+    public void deleteAllEntities(){
+        this.repository.deleteAll();
+    }
 
     // Create
     public String saveSltrLcProdDtlImg(SltrLcProdDtlImgVO vo){

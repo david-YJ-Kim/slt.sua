@@ -1,4 +1,4 @@
-package com.tsh.slt.agent.domain.user.dto;
+package com.tsh.slt.agent.domain.user.vo.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
