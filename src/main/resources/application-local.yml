@@ -1,0 +1,60 @@
+server:
+  port: 8088
+
+mybatis:
+  mapper-locations: classpath*:META-INF/persistence/mybatis/mapper/**/*.xml
+  type-aliases-package: com.plexter.sellter.agent.**.vo
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+    cache-enabled: true
+    call-setters-on-nulls: true
+    jdbc-type-for-null: null
+
+spring:
+  jpa:
+    database-platform: com.tsh.slt.agent.SqlDialect
+    hibernate:
+      ddl-auto: update
+  datasource:
+#    url: jdbc:sqlite:C:/Workspace/sellter/sellter.agent.spring/sellter_sean.sqlite3
+    url: jdbc:sqlite:sqlitesample-agent.db
+    driver-class-name: org.sqlite.JDBC
+    username: admin
+    password: admin
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: true
+    shutdown:
+      enabled: true
+
+##### Application Config ####
+ap:
+  info:
+    group: SUA
+    site: SVM
+    env: DEV
+    sequence: 1
+  interface:
+    solace:
+      host: localhost:55555
+      vpn: MES
+      client:
+        username: default
+        password: admin
+      connect:
+        trial-count: 2
+      reconnect:
+        trial-count: 20
+        per-host: 5
+    destination:
+      send:
+        topic: SVM/BRS/CMN/01
+      receive:
+        queue: SVM_DEV_FIS_CMN

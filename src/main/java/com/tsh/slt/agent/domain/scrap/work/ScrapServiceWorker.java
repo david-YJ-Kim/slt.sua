@@ -1,6 +1,6 @@
 package com.tsh.slt.agent.domain.scrap.work;
 
-import com.tsh.slt.agent.config.ApplicationConfig;
+import com.tsh.slt.agent.config.SuaPropertyObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -15,7 +15,7 @@ public class ScrapServiceWorker implements Runnable{
 //    private String path;
 
     @Autowired
-    private ApplicationConfig config;
+    private SuaPropertyObject config;
 
     public String getPath(){
         return config.getScrapScriptPath();

@@ -151,6 +151,15 @@
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
+
+		<!-- SOLACE -->
+		<dependency>
+			<groupId>com.solacesystems</groupId>
+			<artifactId>sol-jcsmp</artifactId>
+			<version>10.20.0</version>
+		</dependency>
+
+
 	</dependencies>
 
 
