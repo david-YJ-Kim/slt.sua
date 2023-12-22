@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tsh.slt.sua.query.mapper.MesQueryWfsMapper">
+    <!--Common | CMN-QUERY-INFO-MOVESTATUS-->
+    <select id="selectMoveStatDistinct" parameterType="com.tsh.slt.sua.query.model.MoveStatDistinctVO"
+            resultType="com.tsh.slt.sua.query.model.MoveStatDistinctVO">
+
+        SELECT DISTINCT (STAT_CD_ID)
+        FROM TN_CDS_STATE state, TN_CDS_STATE_MODEL model
+        WHERE 1=1
+          AND state.SITE_ID = #{siteId}
+          AND model.STAT_CD_MODEL_ID = 'TransferJobMoveState'
+          AND state.STAT_CD_MODEL_ID = model.STAT_CD_MODEL_ID
+          AND state.USE_STAT_CD = 'Usable'
+          AND model.USE_STAT_CD = 'Usable'
+    </select>
+
+    <!--Common | CMN-QUERY-INFO-FACILITY-->
+    <select id="selectWorkStatCondList" parameterType="com.tsh.slt.sua.query.model.WorkStatCondListVO"
+            resultType="com.tsh.slt.sua.query.model.WorkStatCondListVO">
+        SELECT
+        stat.OBJ_ID
+        ,stat.SITE_ID
+        ,stat.WORK_ID
+        ,stat.BATCH_YN  -- TYPE 구분용
+        ,stat.INLINE_YN  -- TYPE 구분용
+        ,job.JOB_SEQ_ID
+        ,job.LOT_ID
+        ,job.RCP_DEF_ID
+        ,stat.EQP_ID
+        ,stat.EQP_INLINE_ID  -- stat.INLINE_YN = Y 시
+        ,job.IN_PORT_ID
+        ,job.IN_CARR_ID
+        ,job.OUT_PORT_ID
+        ,job.OUT_CARR_ID
+        ,job.JOB_QTY
+        ,job.WORK_FACE_CD
+        ,stat.WORK_STAT_CD
+        ,stat.EVNT_NM
+        FROM WN_WORK_STAT stat, WN_WORK_JOB job
+        WHERE 1=1
+        AND job.SITE_ID = #{siteId}
+        AND job.USE_STAT_CD = 'Usable'
+        AND stat.WORK_ID  = job.WORK_ID
+        <if test='lotId != null and lotId != ""'>
+            AND job.LOT_ID = #{lotId}
+        </if>
+        <if test='carrId != null and carrId != ""'>
+            AND job.IN_CARR_ID = #{carrId}
+        </if>
+        <if test='eqpId != null and eqpId != ""'>
+            AND stat.EQP_ID = #{eqpId}
+        </if>
+    </select>
+
+
+    <!--Work Stat| WR-QUERY-WORKINFO-->
+    <select id="selectZoneDistinct" parameterType="com.tsh.slt.sua.query.model.ZoneDistinctVO"
+            resultType="com.tsh.slt.sua.query.model.ZoneDistinctVO">
+        SELECT
+            DISTINCT (ZONE_ID)
+        FROM TN_RDS_EQP
+        WHERE 1=1
+          AND SITE_ID = #{siteId}
+          AND USE_STAT_CD = 'Usable'
+          AND ZONE_ID IS NOT NULL
+    </select>
+
+    <!--Work Stat | WR-QUERY-CONDWORKINFO-->
+    <select id="selectWorkStatList" parameterType="com.tsh.slt.sua.query.model.WorkStatListVO"
+            resultType="com.tsh.slt.sua.query.model.WorkStatListVO">
+        SELECT
+            stat.OBJ_ID
+             ,stat.SITE_ID
+             ,stat.WORK_ID
+             ,stat.BATCH_YN  -- TYPE 구분용
+             ,stat.INLINE_YN  -- TYPE 구분용
+             ,job.JOB_SEQ_ID
+             ,job.LOT_ID
+             ,job.RCP_DEF_ID
+             ,stat.EQP_ID
+             ,stat.EQP_INLINE_ID  -- stat.INLINE_YN = Y 시
+             ,job.IN_PORT_ID
+             ,job.IN_CARR_ID
+             ,job.OUT_PORT_ID
+             ,job.OUT_CARR_ID
+             ,job.JOB_QTY
+             ,job.WORK_FACE_CD
+             ,stat.WORK_STAT_CD
+             ,stat.EVNT_NM
+        FROM WN_WORK_STAT stat, WN_WORK_JOB job
+        WHERE 1=1
+          AND stat.SITE_ID = #{siteId}
+          AND stat.USE_STAT_CD = 'Usable'
+          AND stat.WORK_ID  = job.WORK_ID
+    </select>
+
+
+
+
+
+    <!--Work Stat| WR-QUERY-SLOTINFO-->
+    <select id="selectWorkStatSlotList" parameterType="com.tsh.slt.sua.query.model.WorkStatSlotListVO"
+            resultType="com.tsh.slt.sua.query.model.WorkStatSlotListVO">
+        SELECT
+        job.OBJ_ID
+        ,slot.SLOT_NO
+        ,job.JOB_SEQ_ID
+        ,slot.PROD_MTRL_ID
+        ,slot.PROD_MTRL_STRT_TM
+        ,slot.PROD_MTRL_END_TM
+        ,slot.SELF_INSP_YN
+        ,slot.SLOT_NO AS "From Slot"
+        ,slot.SLOT_NO AS "To Slot"
+        ,slot.MTRL_FACE_CD
+        ,slot.EVNT_NM
+        FROM WN_WORK_JOB job, WN_WORK_JOB_SLOT_INFO slot
+        WHERE 1=1
+        AND job.SITE_ID = #{siteId}
+        AND job.USE_STAT_CD = 'Usable'
+        <if test='workId != null and workId != ""'>
+            AND job.WORK_ID = #{workId}
+        </if>
+        AND job.WORK_ID  = slot.WORK_ID
+        ORDER BY TO_NUMBER(job.JOB_SEQ_ID) , TO_NUMBER(slot.SLOT_NO)
+    </select>
+
+
+    <!--Transfer Job | TR-QUERY-TRANSJOB-->
+    <select id="selectTransferJobList" parameterType="com.tsh.slt.sua.query.model.TransferJobListVO"
+            resultType="com.tsh.slt.sua.query.model.TransferJobListVO">
+
+        SELECT
+            OBJ_ID
+             ,JOB_ID
+             ,CASE
+                  WHEN CRT_USER_ID = 'WFS' THEN 'Auto Dispatch'
+                  WHEN CRT_USER_ID = 'MCS' THEN 'MCS'
+                  ELSE 'Manual OI'
+            END AS "Transfer Type"
+             ,CARR_ID
+             ,CRNT_EQP_ID
+             ,CRNT_PORT_ID
+             ,SRC_EQP_ID
+             ,SRC_PORT_ID
+             ,DEST_EQP_ID
+             ,DEST_PORT_ID
+             ,MOVE_STAT_CD
+             ,EVNT_NM
+             ,CRT_DT
+             ,CRT_USER_ID AS "Event User ID"
+        FROM WN_TRANSFER_JOB
+        WHERE 1=1
+          AND SITE_ID = #{siteId}
+          AND USE_STAT_CD = 'Usable'
+    </select>
+
+    <!--Transfer Job | TR-QUERY-COND-TRANSJOB-->
+    <select id="selectTransferJobCondList" parameterType="com.tsh.slt.sua.query.model.TransferJobCondListVO"
+            resultType="com.tsh.slt.sua.query.model.TransferJobCondListVO">
+        SELECT
+        job.JOB_ID
+        ,CASE
+        WHEN job.CRT_USER_ID = 'WFS' THEN 'Auto Dispatch'
+        WHEN job.CRT_USER_ID = 'MCS' THEN 'MCS'
+        ELSE 'Manual OI'
+        END AS "Transfer Type"
+        ,job.CARR_ID
+        ,job.CRNT_EQP_ID
+        ,job.CRNT_PORT_ID
+        ,job.SRC_EQP_ID
+        ,job.SRC_PORT_ID
+        ,job.DEST_EQP_ID
+        ,job.DEST_PORT_ID
+        ,job.MOVE_STAT_CD
+        ,job.EVNT_NM
+        ,job.CRT_DT
+        ,job.CRT_USER_ID AS "Event User ID"
+        FROM WN_TRANSFER_JOB job, TN_RDS_EQP eqp
+        WHERE 1=1
+        AND job.SITE_ID = #{siteId}
+        AND job.USE_STAT_CD = 'Usable'
+        AND job.SRC_EQP_ID = #{srcEqpId} OR (#{srcEqpId} IS NULL AND job.DEST_EQP_ID = #{destEqpId})
+        <if test='carrId != null and carrId != ""'>
+            AND job.IN_CARR_ID = #{carrId}
+        </if>
+        <if test='moveStatCd != null and moveStatCd != ""'>
+            AND job.MOVE_STAT_CD = #{moveStatCd}
+        </if>
+        <if test='zoneId != null and zoneId != ""'>
+            AND eqp.ZONE_ID = #{zoneId}
+        </if>
+    </select>
+
+
+
+    <!--Manual | MU-QUERY-CARRLIST-->
+    <select id="selectManualCarrList" parameterType="com.tsh.slt.sua.query.model.ManualCarrListVO"
+            resultType="com.tsh.slt.sua.query.model.ManualCarrListVO">
+
+        SELECT
+            wip.OBJ_ID
+             , wip.SITE_ID
+             ,wip.CARR_ID
+             , eqp.ZONE_ID
+             , wip.LOT_ID
+             , cls.CARR_CLS_NM
+             , carr.SLOT_QTY
+             , wip.WORK_STAT_CD
+             ,CASE
+                  WHEN EXISTS (
+                      SELECT CARR_ID
+                      FROM WN_TRANSFER_JOB
+                      WHERE 1=1
+                        AND CARR_ID = wip.CARR_ID
+                        AND wip.SITE_ID = ${siteId}
+                        AND wip.USE_STAT_CD = 'Usable'
+                  ) THEN 'N'
+                  ELSE 'Y'
+            END AS "RETURN_ABLE_YN"
+             , wip.CRNT_EQP_ID
+             , wip.CRNT_PORT_ID
+        FROM WN_WIP_STAT wip, TN_RDS_EQP eqp, TN_POS_CARRIER carr, TN_RDS_CARRIER_CLS cls
+        WHERE 1=1
+          AND wip.site_id = #{siteId}
+          AND wip.USE_STAT_CD = 'Usable'
+          AND wip.LOT_ID = '-'
+          AND wip.CRNT_EQP_ID = eqp.EQP_ID
+          AND wip.CARR_ID = carr.CARR_ID
+          AND carr.CARR_CLS_ID = cls.CARR_CLS_ID
+    </select>
+
+    <!--Manual | MU-QUERY-COND-CARRLIST-->
+    <select id="selectManualCarrCondList" parameterType="com.tsh.slt.sua.query.model.ManualCarrCondListVO"
+            resultType="com.tsh.slt.sua.query.model.ManualCarrCondListVO">
+
+        SELECT
+        wip.OBJ_ID
+        , wip.SITE_ID
+        ,wip.CARR_ID
+        , eqp.ZONE_ID
+        , wip.LOT_ID
+        , carrcls.CARR_CLS_NM
+        , carr.SLOT_QTY
+        , wip.WORK_STAT_CD
+        ,CASE
+        WHEN EXISTS (
+        SELECT CARR_ID
+        FROM WN_TRANSFER_JOB
+        WHERE 1=1
+        AND CARR_ID = wip.CARR_ID
+        AND wip.SITE_ID = #{siteId}
+        AND wip.USE_STAT_CD = 'Usable'
+        ) THEN 'N'
+        ELSE 'Y'
+        END AS "RETURN_ABLE_YN"
+        , wip.CRNT_EQP_ID
+        , wip.CRNT_PORT_ID
+        FROM WN_WIP_STAT wip, TN_RDS_EQP eqp, TN_POS_CARRIER carr, TN_RDS_CARRIER_CLS carrcls
+        WHERE 1=1
+        AND wip.site_id = #{siteId}
+        AND wip.USE_STAT_CD = 'Usable'
+        AND wip.LOT_ID = '-'
+        AND wip.CRNT_EQP_ID = eqp.EQP_ID
+        AND wip.CARR_ID = carr.CARR_ID
+        AND carr.CARR_CLS_ID = carrcls.CARR_CLS_ID
+        <if test='lotId != null and lotId != ""'>
+            AND job.LOT_ID = #{lotId}
+        </if>
+        <if test='carrId != null and carrId != ""'>
+            AND job.IN_CARR_ID = #{carrId}
+        </if>
+        <if test='eqpId != null and eqpId != ""'>
+            AND stat.EQP_ID = #{eqpId}
+        </if>
+        <if test='zoneId != null and zoneId != ""'>
+            AND eqp.ZONE_ID = #{zoneId}
+        </if>
+    </select>
+
+
+    <!--WIP | WP-QUERY-WIPINF-->
+    <select id="selectWipQueryList" parameterType="com.tsh.slt.sua.query.model.WipQueryListVO"
+            resultType="com.tsh.slt.sua.query.model.WipQueryListVO">
+        SELECT
+            stat.OBJ_ID
+             , stat.SITE_ID
+             , stat.CARR_ID
+             , stat.LOT_ID
+             , stat.WORK_STAT_CD
+             , job.RCP_DEF_ID
+             , wok.EQP_ID
+             , job.IN_PORT_ID AS "Port ID"
+             , wok.WORK_ID
+             , stat.RESV_EQP_ID
+             , stat.RESV_PORT_ID
+             , stat.EVNT_NM
+             , stat.MDFY_DT
+        FROM WN_WIP_STAT stat, WN_WORK_STAT wok, WN_WORK_JOB job
+        WHERE 1=1
+          AND stat.SITE_ID = #{siteId}
+          AND stat.USE_STAT_CD = 'Usable'
+          AND stat.CARR_ID != '-'
+          AND stat.LOT_ID != '-'
+    </select>
+
+
+    <!--WIP | WP-QUERY-COND-WIPINF-->
+    <select id="selectWipQueryCondList" parameterType="com.tsh.slt.sua.query.model.WipQueryCondListVO"
+            resultType="com.tsh.slt.sua.query.model.WipQueryCondListVO">
+        SELECT
+        stat.OBJ_ID
+        , stat.SITE_ID
+        , stat.CARR_ID
+        , stat.LOT_ID
+        , stat.WORK_STAT_CD
+        , job.RCP_DEF_ID
+        , wok.EQP_ID
+        , job.IN_PORT_ID AS "Port ID"
+        , wok.WORK_ID
+        , stat.RESV_EQP_ID
+        , stat.RESV_PORT_ID
+        , stat.EVNT_NM
+        , stat.MDFY_DT
+        FROM WN_WIP_STAT stat, WN_WORK_STAT wok, WN_WORK_JOB job
+        WHERE 1=1
+        AND stat.SITE_ID = #{siteId}
+        AND stat.USE_STAT_CD = 'Usable'
+        AND stat.CARR_ID != '-'
+        AND stat.LOT_ID != '-'
+        <if test='lotId != null and lotId != ""'>
+            AND job.LOT_ID = #{lotId}
+        </if>
+        <if test='carrId != null and carrId != ""'>
+            AND job.IN_CARR_ID = #{carrId}
+        </if>
+        <if test='moveStatCd != null and moveStatCd != ""'>
+            AND job.MOVE_STAT_CD = #{moveStatCd}
+        </if>
+    </select>
+
+</mapper>

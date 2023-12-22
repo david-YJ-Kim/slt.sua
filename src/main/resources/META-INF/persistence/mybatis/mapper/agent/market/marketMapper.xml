@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tsh.slt.agent.domain.market.mapper.SltrLcMktDefMapper">
+<mapper namespace="com.tsh.slt.sua.domain.market.mapper.SltrLcMktDefMapper">
 
     <!-- INSERT -->
-    <insert id="saveSltrLcMktDef" parameterType="com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO">
+    <insert id="saveSltrLcMktDef" parameterType="com.tsh.slt.sua.domain.market.vo.SltrLcMktDefVO">
         INSERT INTO SLTR_LC_MKT_DEF
         (OBJ_ID, MKT_ID, MKT_NAME, MKT_TYP, CREATE_DATE, CREATE_USER_ID, UPDATE_DATE, UPDATE_USER_ID)
         VALUES(#{OBJ_ID}, #{MKT_ID}, #{MKT_NAME}, #{MKT_TYP},  CURRENT_TIMESTAMP, #{CREATE_USER_ID}, CURRENT_TIMESTAMP, #{UPDATE_USER_ID});
@@ -12,7 +12,7 @@
 
 
     <!-- UPDATE -->
-    <update id="updateSltrLcMktDef" parameterType="com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO">
+    <update id="updateSltrLcMktDef" parameterType="com.tsh.slt.sua.domain.market.vo.SltrLcMktDefVO">
         UPDATE SLTR_LC_MKT_DEF
         SET MKT_NAME=#{MKT_NAME}, MKT_TYP=#{MKT_TYP}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
         WHERE OBJ_ID=#{OBJ_ID};
@@ -27,7 +27,7 @@
     </delete>
 
     <!-- GET -->
-    <select id="getSltrLcMktDefById" parameterType="String" resultType="com.tsh.slt.agent.domain.market.vo.SltrLcMktDefVO">
+    <select id="getSltrLcMktDefById" parameterType="String" resultType="com.tsh.slt.sua.domain.market.vo.SltrLcMktDefVO">
         SELECT * FROM SLTR_LC_MKT_DEF
         WHERE OBJ_ID=#{OBJ_ID};
     </select>

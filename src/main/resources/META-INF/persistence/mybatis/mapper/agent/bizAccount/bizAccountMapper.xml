@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.tsh.slt.agent.domain.bizAccount.mapper.SltrLcBizDefMapper">
+<mapper namespace="com.tsh.slt.sua.domain.bizAccount.mapper.SltrLcBizDefMapper">
 
     <!-- INSERT -->
-    <insert id="saveSltrLcBizDef" parameterType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO">
+    <insert id="saveSltrLcBizDef" parameterType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizDefVO">
         INSERT INTO SLTR_LC_BIZ_DEF
         (OBJ_ID, USER_OBJ_ID, BIZ_REG_NUM, BIZ_NAME, REP_USE_NAME, BIZ_ADDR, BIZ_START_DATE,
          DISP_SEQ, USE_YN, LAST_VALID_DATE, BASE_MGN_RATE, BASE_MGN_VALUE,
@@ -14,7 +14,7 @@
 
     </insert>
 
-    <insert id="saveSltrBizMktRel" parameterType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO">
+    <insert id="saveSltrBizMktRel" parameterType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizMktRelVO">
         INSERT INTO STLR_LC_BIZ_MKT_REL
         (OBJ_ID, USER_OBJ_ID, BIZ_OBJ_ID, MKT_ID, MKT_USER_ID, MKT_USER_PWD, API_ACCESS_KEY,
          API_SECRET_KEY, MKT_COMPANY_CODE, AUTO_CONNECT_YN, AUTO_PROD_UPLOAD_YN, MGN_RATE, MGN_BASIC,
@@ -26,7 +26,7 @@
     </insert>
 
     <!-- UPDATE -->
-    <update id="updateSltrLcBizDef" parameterType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO" statementType="PREPARED">
+    <update id="updateSltrLcBizDef" parameterType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizDefVO" statementType="PREPARED">
         UPDATE SLTR_LC_BIZ_DEF
         SET BIZ_NAME=#{BIZ_NAME}, REP_USE_NAME=#{REP_USE_NAME}, BIZ_ADDR=#{BIZ_ADDR}, BIZ_START_DATE=#{BIZ_START_DATE}, DISP_SEQ=#{DISP_SEQ}, USE_YN=#{USE_YN}, LAST_VALID_DATE=#{LAST_VALID_DATE},
             BASE_MGN_RATE=#{BASE_MGN_RATE}, BASE_MGN_VALUE=#{BASE_MGN_VALUE}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
@@ -34,7 +34,7 @@
 
     </update>
 
-    <update id="updateSltrBizMktRel" parameterType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO" statementType="PREPARED">
+    <update id="updateSltrBizMktRel" parameterType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizMktRelVO" statementType="PREPARED">
         UPDATE STLR_LC_BIZ_MKT_REL
         SET MKT_USER_ID=#{MKT_USER_ID}, MKT_USER_PWD=#{MKT_USER_PWD}, API_ACCESS_KEY=#{API_ACCESS_KEY}, API_SECRET_KEY=#{API_SECRET_KEY}, MKT_COMPANY_CODE=#{MKT_COMPANY_CODE}, AUTO_CONNECT_YN=#{AUTO_CONNECT_YN},
             AUTO_PROD_UPLOAD_YN=#{AUTO_PROD_UPLOAD_YN}, MGN_RATE=#{MGN_RATE}, MGN_BASIC=#{MGN_BASIC}, UPDATE_DATE=CURRENT_TIMESTAMP, UPDATE_USER_ID=#{UPDATE_USER_ID}
@@ -58,13 +58,13 @@
 
 
     <!-- GET -->
-    <select id="getSltrLcBizDefById" parameterType="String" resultType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizDefVO">
+    <select id="getSltrLcBizDefById" parameterType="String" resultType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizDefVO">
         SELECT * FROM SLTR_LC_BIZ_DEF
         WHERE OBJ_ID=#{OBJ_ID};
 
     </select>
 
-    <select id="getSltrBizMktRelById" parameterType="String" resultType="com.tsh.slt.agent.domain.bizAccount.vo.SltrLcBizMktRelVO">
+    <select id="getSltrBizMktRelById" parameterType="String" resultType="com.tsh.slt.sua.domain.bizAccount.vo.SltrLcBizMktRelVO">
         SELECT * FROM STLR_LC_BIZ_MKT_REL
         WHERE OBJ_ID=#{OBJ_ID};
 

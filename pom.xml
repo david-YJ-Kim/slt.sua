@@ -26,6 +26,7 @@
 		<log4j2.version>2.17.0</log4j2.version>
 		<swagger.version>3.0.0</swagger.version>
 		<sqlite.version>3.34.0</sqlite.version>
+		<mybatis-paging.version>1.4.1</mybatis-paging.version>
 	</properties>
 
 	<dependencies>
@@ -157,6 +158,12 @@
 			<groupId>com.solacesystems</groupId>
 			<artifactId>sol-jcsmp</artifactId>
 			<version>10.20.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper-spring-boot-starter</artifactId>
+			<version>${mybatis-paging.version}</version>
 		</dependency>
 
 
